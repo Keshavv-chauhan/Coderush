@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CODE RUSH</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="bgcss/style.css">
+    <link rel="stylesheet" href="bgcss/nav.css">
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fixed background image */
+        body {
+            background: url('image/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        
+    </style>
+</head>
+<body id="main">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" id="main">
+            CODE RUSH
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-section">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#problems">Problems</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#schedule">Schedule</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeNIl0-6-WrMF4jd-ygLfEf07IqV1VowvDMfHV7oHLw0-kBcQ/viewform?usp=sf_link">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Background Section -->
+    <div id="large-header" class="large-header">
+        <canvas id="demo-canvas"></canvas>
+        <h1 class="main-title">
+            <img src="image/logo.png" alt="Logo" class="logo">
+            <br>
+            GURUGRAM UNIVERSITY<br>
+            Presents<br>
+            CODE RUSH
+            <button class="button" id="button" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSeNIl0-6-WrMF4jd-ygLfEf07IqV1VowvDMfHV7oHLw0-kBcQ/viewform?usp=sf_link'">
+                REGISTER NOW
+                <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                    <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
+                </svg>
+            </button>
+              
+        </h1>
+        
+    </div>
+
+    <!-- About Me Section -->
+    <div id="about-section" class="about-me">
+        <h2>About Us</h2>
+        <div class="content">
+            <p>Established in 2017, Gurugram University is a dynamic and vibrant institution located in the heart of Gurugram, Haryana. Our urban campus serves as a hub of academic and professional excellence with a global vision. We nurture a dynamic environment where students from diverse backgrounds can learn, grow, and transform into the leaders and innovators of tomorrow. Our state-of-the-art facilities and dedicated faculty ensure that our students receive a holistic education that combines theoretical knowledge with practical application.</p>
+        </div>
+        <br>
+        <h2>Why the Hackathon</h2>
+        <div class="content">
+            <p>Unleash your innovation at Gurugram University's Hackathon! This exciting event provides you with the opportunity to collaborate with talented peers, brainstorm creative solutions, and bring your ideas to life in just a few days. Participants develop valuable technical skills, build a strong portfolio, and network with industry professionals. The Hackathon is not just a competition; it's an experiential learning event that pushes your limits, fosters teamwork, and enhances problem-solving skills. It's the perfect platform to turn your potential into reality while having fun.</p>
+        </div>
+    </div>
+
+    <!-- Problem Statements Section -->
+    <div>
+        <div id="problems" class="problem-statement">
+            <h1>Problem Statements</h1>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item" data-url="problems/P1.pdf" data-fullname="Agriculture Tech" data-abbr="Agri Tech">
+                <img src="image/agri.jpg" alt="Agriculture Tech">
+                <span>Agriculture Tech</span>
+            </div>
+            <div class="grid-item" data-url="problems/P3.pdf" data-fullname="Artificial Intelligence" data-abbr="AI">
+                <img src="image/AI.jpg" alt="Artificial Intelligence">
+                <span>AI</span>
+            </div>
+            <div class="grid-item" data-url="problems/P4.pdf" data-fullname="Cyber Security" data-abbr="CS">
+                <img src="image/cyber.png" alt="Cyber Security">
+                <span>CS</span>
+            </div>
+            <div class="grid-item" data-url="problems/P5.pdf" data-fullname="Green Tech" data-abbr="Green Tech">
+                <img src="image/green.jpg" alt="Green Tech">
+                <span>Green Tech</span>
+            </div>
+            <div class="grid-item" data-url="problems/P2.pdf" data-fullname="Health Tech" data-abbr="Health Tech">
+                <img src="image/health.jpg" alt="Health Tech">
+                <span>Health Tech</span>
+            </div>
+        </div>
+        <script>
+            document.querySelectorAll('.grid-item').forEach(item => {
+                const fullname = item.getAttribute('data-fullname');
+                const abbr = item.getAttribute('data-abbr');
+                item.querySelector('span').innerText = abbr;
+    
+                item.addEventListener('mouseover', () => {
+                    item.querySelector('span').innerText = fullname;
+                });
+    
+                item.addEventListener('mouseout', () => {
+                    item.querySelector('span').innerText = abbr;
+                });
+    
+                item.addEventListener('click', () => {
+                    window.location.href = item.getAttribute('data-url');
+                });
+            });
+        </script>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script defer src="bgjs/nav.js"></script>
+    <script defer src="bgjs/bg.js"></script>
+    <div id="schedule">
+        <div>
+            <h1 class="ab">Friday</h1>
+            <ul>
+                <li style="--accent-color:#41516C">
+                    <div class="date">9:00AM</div>
+                    <div class="title">Checkin & Registration</div>
+                </li>
+                <li style="--accent-color:#FBCA3E">
+                    <div class="date">10:00AM</div>
+                    <div class="title">Opening Ceremony</div>
+                </li>
+                <li style="--accent-color:#E24A68">
+                    <div class="date">1:00PM</div>
+                    <div class="title">Lunch Break</div>
+                </li>
+                <li style="--accent-color:#1B5F8C">
+                    <div class="date">6:30PM - 7:00PM</div>
+                    <div class="title">Break</div>
+                </li>
+                <li style="--accent-color:#4CADAD">
+                    <div class="date">8:00PM - 10:00PM</div>
+                    <div class="title">Dinner & Networking Event</div>
+                </li>
+            </ul>
+        
+            <h1 class="ab">Saturday</h1>
+            <ul>
+                <li style="--accent-color:#41516C">
+                    <div class="date">9:00AM - 10:00AM</div>
+                    <div class="title">Tea break</div>
+                </li>
+                <li style="--accent-color:#FBCA3E">
+                    <div class="date">10:00AM - 12:00PM</div>
+                    <div class="title">First Evaluation</div>
+                </li>
+                <li style="--accent-color:#E24A68">
+                    <div class="date">1:00PM - 2:00PM</div>
+                    <div class="title">Lunch</div>
+                </li>
+                <li style="--accent-color:#1B5F8C">
+                    <div class="date">3:00PM - 4:30PM</div>
+                    <div class="title">Brainstorm with Mentors</div>
+                </li>
+                <li style="--accent-color:#4CADAD">
+                    <div class="date">4:30PM - 6:00PM</div>
+                    <div class="title">Results and Closing Ceremony</div>
+                </li>
+            </ul>
+        </div>
+        
+
+    </div>
+</body>
+</html>
