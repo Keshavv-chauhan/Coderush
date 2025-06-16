@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login & Register</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+      transition: all 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .form-container {
+      position: relative;
+    }
+
+    form {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form.active {
+      display: flex;
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 20px;
+      border: 2px solid #e1e5e9;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: #f8f9fa;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+    }
+
+    button {
+      padding: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .toggle {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .toggle span {
+      color: #667eea;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .toggle span:hover {
+      color: #764ba2;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .message.success {
+      background: linear-gradient(135deg, #48bb78, #38a169);
+      color: white;
+      animation: slideIn 0.5s ease;
+    }
+
+    .message.error {
+      background: linear-gradient(135deg, #f56565, #e53e3e);
+      color: white;
+      animation: shake 0.5s ease;
+    }
+
+    .welcome-screen {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .welcome-screen.active {
+      display: block;
+    }
+
+    .welcome-title {
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      animation: glow 2s ease infinite alternate;
+    }
+
+    .welcome-subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .user-info {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .logout-btn {
+      background: linear-gradient(135deg, #f56565, #e53e3e);
+      margin-top: 20px;
+    }
+
+    .logout-btn:hover {
+      box-shadow: 0 10px 25px rgba(245, 101, 101, 0.3);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+      }
+      to {
+        text-shadow: 0 0 30px rgba(118, 75, 162, 0.7);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 30px 20px;
+        margin: 10px;
+      }
+      
+      .welcome-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h2 id="formTitle">Welcome Back</h2>
+
+      <form id="loginForm" class="active">
+        <div class="input-group">
+          <input type="text" id="loginUsername" placeholder="Enter your username" required />
+        </div>
+        <div class="input-group">
+          <input type="password" id="loginPassword" placeholder="Enter your password" required />
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+
+      <form id="registerForm">
+        <div class="input-group">
+          <input type="text" id="regUsername" placeholder="Choose a username" required />
+        </div>
+        <div class="input-group">
+          <input type="password" id="regPassword" placeholder="Create a password" required />
+        </div>
+        <div class="input-group">
+          <input type="password" id="regConfirmPassword" placeholder="Confirm your password" required />
+        </div>
+        <button type="submit">Create Account</button>
+      </form>
+
+      <div class="toggle">
+        <span id="toggleForm">Don't have an account? Sign up here</span>
+      </div>
+
+      <div id="message" class="message"></div>
+    </div>
+
+    <div id="welcomeScreen" class="welcome-screen">
+      <div class="welcome-title">🎉 Welcome!</div>
+      <div class="welcome-subtitle">You have successfully logged into your account</div>
+      <div id="userInfo" class="user-info"></div>
+      <p style="color: #666; font-style: italic;">Enjoy your secure session!</p>
+      <button id="logoutBtn" class="logout-btn">Sign Out</button>
+    </div>
+  </div>
+
+  <script>
+    // In-memory user storage (replaces localStorage for Claude environment)
+    let users = [];
+    let currentUser = null;
+    let isLoggedIn = false;
+
+    // User management functions
+    function saveUser(username, password) {
+      const user = {
+        username: username.trim().toLowerCase(),
+        password: password,
+        registeredAt: new Date().toLocaleString()
+      };
+      users.push(user);
+      return user;
+    }
+
+    function findUser(username) {
+      return users.find(user => user.username === username.trim().toLowerCase());
+    }
+
+    function validateUser(username, password) {
+      const user = users.find(user => 
+        user.username === username.trim().toLowerCase() && 
+        user.password === password
+      );
+      return user;
+    }
+
+    // DOM Elements
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const toggleForm = document.getElementById('toggleForm');
+    const formTitle = document.getElementById('formTitle');
+    const message = document.getElementById('message');
+    const welcomeScreen = document.getElementById('welcomeScreen');
+    const userInfo = document.getElementById('userInfo');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    // Utility functions
+    function showMessage(text, type = 'success') {
+      message.textContent = text;
+      message.className = `message ${type}`;
+      setTimeout(() => {
+        message.textContent = '';
+        message.className = 'message';
+      }, 4000);
+    }
+
+    function clearForms() {
+      loginForm.reset();
+      registerForm.reset();
+    }
+
+    // Toggle between login and register forms
+    toggleForm.onclick = () => {
+      const isLogin = loginForm.classList.contains('active');
+      
+      loginForm.classList.toggle('active');
+      registerForm.classList.toggle('active');
+      
+      if (isLogin) {
+        formTitle.textContent = 'Create Account';
+        toggleForm.innerHTML = 'Already have an account? <span>Sign in here</span>';
+      } else {
+        formTitle.textContent = 'Welcome Back';
+        toggleForm.innerHTML = 'Don\'t have an account? <span>Sign up here</span>';
+      }
+      
+      message.textContent = '';
+      message.className = 'message';
+      clearForms();
+    };
+
+    // Registration handler
+    registerForm.onsubmit = function (e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('regUsername').value;
+      const password = document.getElementById('regPassword').value;
+      const confirmPassword = document.getElementById('regConfirmPassword').value;
+
+      // Validation
+      if (!username.trim() || !password || !confirmPassword) {
+        showMessage('Please fill in all fields.', 'error');
+        return;
+      }
+
+      if (username.trim().length < 3) {
+        showMessage('Username must be at least 3 characters long.', 'error');
+        return;
+      }
+
+      if (password.length < 6) {
+        showMessage('Password must be at least 6 characters long.', 'error');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showMessage('Passwords do not match.', 'error');
+        return;
+      }
+
+      if (findUser(username)) {
+        showMessage('Username already exists. Please choose another one.', 'error');
+        return;
+      }
+
+      // Save user and show success
+      const newUser = saveUser(username, password);
+      showMessage('Registration Successful! You can now log in.', 'success');
+      
+      clearForms();
+      
+      // Auto-switch to login form after successful registration
+      setTimeout(() => {
+        if (registerForm.classList.contains('active')) {
+          toggleForm.click();
+        }
+      }, 2000);
+    };
+
+    // Login handler
+    loginForm.onsubmit = function (e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      if (!username.trim() || !password) {
+        showMessage('Please enter both username and password.', 'error');
+        return;
+      }
+
+      const user = validateUser(username, password);
+      
+      if (user) {
+        currentUser = user;
+        isLoggedIn = true;
+        showMessage('Login Successful!', 'success');
+        
+        setTimeout(() => {
+          showWelcomeScreen();
+        }, 1500);
+      } else {
+        showMessage('Invalid username or password.', 'error');
+      }
+
+      clearForms();
+    };
+
+    // Logout handler
+    logoutBtn.onclick = function () {
+      currentUser = null;
+      isLoggedIn = false;
+      showLoginScreen();
+      showMessage('You have been logged out successfully.', 'success');
+    };
+
+    // Screen management
+    function showWelcomeScreen() {
+      document.querySelector('.form-container').style.display = 'none';
+      welcomeScreen.classList.add('active');
+      
+      if (currentUser) {
+        userInfo.innerHTML = `
+          <div>👤 Logged in as: <strong>${currentUser.username}</strong></div>
+          <div style="margin-top: 10px; font-size: 14px; opacity: 0.9;">
+            Account created: ${currentUser.registeredAt}
+          </div>
+        `;
+      }
+    }
+
+    function showLoginScreen() {
+      document.querySelector('.form-container').style.display = 'block';
+      welcomeScreen.classList.remove('active');
+      
+      // Reset to login form
+      loginForm.classList.add('active');
+      registerForm.classList.remove('active');
+      formTitle.textContent = 'Welcome!';
+      toggleForm.innerHTML = 'Don\'t have an account? <span>Sign up here</span>';
+    }
+
+    // Initialize the app
+    function init() {
+      // Add some demo users for testing
+      users.push({
+        username: 'demo',
+        password: 'demo123',
+        registeredAt: new Date().toLocaleString()
+      });
+      
+      showLoginScreen();
+    }
+
+    // Start the application
+    init();
+  </script>
+</body>
+</html>
