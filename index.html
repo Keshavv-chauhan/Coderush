@@ -24,111 +24,116 @@
       margin: 0 auto;
       padding: 0 20px;
     }
+/* Navigation */
+nav {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
 
-    /* Navigation */
-    nav {
-      background: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-    }
+.imagelogo {
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .teacher-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2563eb;
+}
 
-    .standards-scroll {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      margin: 10px 0;
-    }
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
 
-    .standards-scroll span {
-      background: #afeeee;
-      padding: 5px 10px;
-      border-radius: 8px;
-      white-space: nowrap;
-    }
+.nav-links button {
+  background: none;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 500;
+}
 
+.nav-links button:hover,
+.nav-links button.active {
+  background: #dbeafe;
+  color: #2563eb;
+  transform: scale(1.05);
+}
 
-    .imagelogo {
-      border-radius: 32px;
-    }
+/* Mobile Menu Button */
+.mobile-menu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #2563eb;
+}
 
-    .logo {
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #2563eb;
-    }
+/* Mobile Navigation Panel */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-top: 1px solid #e5e7eb;
+  background-color: white;
+}
 
-    .logo::before {
+.mobile-nav button {
+  background: none;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  color: #374151;
+  transition: all 0.3s ease;
+}
 
-      margin-right: 8px;
-    }
+.mobile-nav button:hover {
+  background: #dbeafe;
+  color: #2563eb;
+  border-radius: 6px;
+}
 
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
 
-    .nav-links button {
-      background: none;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      color: #374151;
-      font-size: 1rem;
-    }
+  .mobile-menu {
+    display: block;
+  }
 
-    .nav-links button:hover,
-    .nav-links button.active {
-      background: #dbeafe;
-      color: #2563eb;
-    }
-
-    .mobile-menu {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem 2rem;
-      border-top: 1px solid #e5e7eb;
-    }
-
-    .mobile-nav button {
-      background: none;
-      border: none;
-      padding: 0.5rem;
-      text-align: left;
-      cursor: pointer;
-      color: #374151;
-    }
+  .mobile-nav {
+    display: flex;
+  }
+}
 
     /* Sections */
     .section {
@@ -228,67 +233,253 @@
       font-size: 3rem;
       margin-bottom: 1rem;
     }
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Courses Section */
-    .courses {
-      background: #f9fafb;
-      padding: 5rem 0;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .section-header h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
 
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
+        .courses {
+            background: #f9fafb;
+        }
 
-    .course-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
 
-    .course-card:hover {
-      transform: translateY(-5px);
-    }
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
 
-    .course-content {
-      padding: 1.5rem;
-    }
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
 
-    .course-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      margin-bottom: 1rem;
-    }
+        /* Course Categories Navigation */
+        .course-categories {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
 
-    .course-price {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #2563eb;
-    }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-    .course-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.875rem;
-      color: #6b7280;
-      margin-bottom: 1rem;
-    }
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
 
+        .btn-secondary:hover,
+        .btn-secondary.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* Course Category */
+        .course-category {
+            display: none;
+        }
+
+        .course-category.active {
+            display: block;
+        }
+
+        .course-category h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: #2563eb;
+        }
+        .form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.custom-select {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  color: #1f2937;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  width: 100%;
+}
+
+.custom-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.custom-select option {
+  padding: 0.5rem;
+}
+
+
+        /* Subject Cards Grid */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .subject-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .subject-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .subject-header h4 {
+            margin: 0;
+            color: #1f2937;
+            font-size: 1.25rem;
+        }
+
+        .subject-header p {
+            margin: 0.25rem 0 0 0;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .subject-content {
+            flex: 1;
+        }
+
+        .subject-content h5 {
+            margin-bottom: 0.75rem;
+            color: #374151;
+            font-size: 1rem;
+        }
+
+        /* Standards/Levels Display */
+        .standards-scroll,
+        .levels-scroll {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .standards-scroll span,
+        .level-badge {
+            min-width: 100px;
+            background: #f3f4f6;
+            padding: 0.55rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            flex-shrink: 0;
+        }
+
+        .level-badge {
+            min-width: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .level-badge .level-name {
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .level-badge .level-desc {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .subjects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .subject-card {
+                min-height: 180px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .course-category h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .subjects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .subjects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
     /* Forms */
     .form-section {
       padding: 5rem 0;
@@ -409,7 +600,7 @@
         <p>Master Academics, Learn AI, and Speak the World – All from the comfort of home..</p>
         <div class="cta-buttons">
           <button class="btn btn-primary" onclick="showSection('courses')">Browse Courses</button>
-          <button class="btn btn-secondary" onclick="showSection('register')">Get Started</button>
+          <button class="btn btn-secondary" onclick="showSection('Contact')">Get Started</button>
         </div>
       </div>
     </div>
@@ -464,7 +655,7 @@
         <h2 style="text-align: center; color: #2563eb; margin-bottom: 1.5rem;">Platforms We Use</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
           <div style="flex: 1 1 180px; max-width: 220px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Zoom_Communications_Logo.svg" alt="Zoom" style="height: 40px; margin-bottom: 1rem;">
+            <img src="https://www.pngwing.com/en/free-png-afema" alt="Zoom" style="height: 40px; margin-bottom: 1rem;">
             <div style="font-weight: bold; color: #1f2937;">Zoom</div>
             <div style="font-size: 0.9rem; color: #6b7280;">Live interactive classes</div>
           </div>
@@ -589,454 +780,358 @@
       </div>
     </div>
   </section>
-
-  <!-- Courses Section -->
   <section id="courses" class="section">
-    <div class="courses">
-      <div class="container">
-        <div class="section-header">
-          <h2>Our Courses</h2>
-          <p>Choose from our comprehensive selection of courses</p>
-        </div>
+        <div class="courses">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Courses</h2>
+                    <p>Choose from our comprehensive selection of courses</p>
+                </div>
 
-        <!-- Course Categories Navigation -->
-        <div class="course-categories"
-          style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-          <button class="btn btn-secondary" onclick="showCourseCategory('academics')"
-            id="academicsBtn">Academics</button>
-          <button class="btn btn-secondary" onclick="showCourseCategory('languages')"
-            id="languagesBtn">Languages</button>
-          <button class="btn btn-secondary" onclick="showCourseCategory('programming')"
-            id="programmingBtn">Programming</button>
-        </div>
+                <!-- Course Categories Navigation -->
+                <div class="course-categories">
+                    <button class="btn btn-secondary active" onclick="showCourseCategory('academics')" id="academicsBtn">Academics</button>
+                    <button class="btn btn-secondary" onclick="showCourseCategory('languages')" id="languagesBtn">Languages</button>
+                    <button class="btn btn-secondary" onclick="showCourseCategory('programming')" id="programmingBtn">Programming</button>
+                </div>
 
-      <!-- Academics Courses -->
-      <div id="academics" class="course-category active">
-        <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: #2563eb;">Academic Subjects</h3>
-        <!-- Mathematics -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">Mathematics</h4>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available for standards:</h5>
-            <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;">
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">1st-5th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Basic Concepts</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">6th-8th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Intermediate</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">9th-10th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Board Level</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">11th-12th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Advanced</div>
-              </div>
-            </div>
-          </div>
-        </div>
+                <!-- Academics Courses -->
+                <div id="academics" class="course-category active">
+                    <h3>Academic Subjects</h3>
+                    <div class="subjects-grid">
+                        <!-- Mathematics -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>Mathematics</h4>
+                                    <p>Concepts from basic to advanced level</p>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available for standards:</h5>
+                                <div class="standards-scroll">
+                                    <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basic Concepts</span></span>
+                                    <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Intermediate</span></span>
+                                    <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
+                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced</span></span>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- Science -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">Science</h4>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available for standards:</h5>
-            <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;">
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">1st-5th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">General Science</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">6th-8th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Physics, Chemistry, Biology</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">9th-10th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Board Level</div>
-              </div>
-              
-          </div>
-        </div>
-        <!-- Chemistry -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">Chemistry</h4>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available for standards:</h5>
-            <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;">
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-                <div style="font-weight: bold;">11th-12th</div>
-                <div style="font-size: 0.8rem; color: #6b7280;">Advanced Chemistry</div>
-              </div>
-            </div>
-          </div>
-        </div>
+                        <!-- Science -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>Science</h4>
+                                    <p>Covers Physics, Chemistry & Biology</p>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available for standards:</h5>
+                                <div class="standards-scroll">
+                                    <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">General Science</span></span>
+                                    <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">PCB Basics</span></span>
+                                    <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- Physics -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">Physics</h4>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available for standards:</h5>
-            <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;">
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-                <div style="font-weight: bold;">11th-12th</div>
-                <div style="font-size: 0.8rem; color: #6b7280;">Advanced Physics</div>
-              </div>
-            </div>
-          </div>
-        </div>
+                        <!-- Chemistry -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>Chemistry</h4>
+                                    <p>Inorganic, Organic & Physical</p>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available for standards:</h5>
+                                <div class="standards-scroll">
+                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Chemistry</span></span>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- Biology -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">Biology</h4>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available for standards:</h5>
-            <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;">
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-                <div style="font-weight: bold;">11th-12th</div>
-                <div style="font-size: 0.8rem; color: #6b7280;">Advanced Biology</div>
-              </div>
-            </div>
-          </div>
-        </div>
+                        <!-- Physics -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>Physics</h4>
+                                    <p>Mechanics, Thermodynamics, EM, etc.</p>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available for standards:</h5>
+                                <div class="standards-scroll">
+                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Physics</span></span>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- Computer -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">Computer</h4>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available for standards:</h5>
-            <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;">
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-                <div style="font-weight: bold;">1st-5th</div>
-                <div style="font-size: 0.8rem; color: #6b7280;">Basics</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-                <div style="font-weight: bold;">6th-8th</div>
-                <div style="font-size: 0.8rem; color: #6b7280;">Fundamentals</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-                <div style="font-weight: bold;">9th-10th</div>
-                <div style="font-size: 0.8rem; color: #6b7280;">IT/CS</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-                <div style="font-weight: bold;">11th-12th</div>
-                <div style="font-size: 0.8rem; color: #6b7280;">Computer Science</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- English -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">English</h4>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available for standards:</h5>
-            <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;">
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">1st-5th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Basic English</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">6th-8th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Grammar & Literature</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">9th-10th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Board Level</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">11th-12th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Advanced English</div>
-              </div>
-            </div>
-          </div>
-        </div>
+                        <!-- Biology -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>Biology</h4>
+                                    <p>Zoology, Botany, and Human Biology</p>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available for standards:</h5>
+                                <div class="standards-scroll">
+                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Biology</span></span>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- Social Studies -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">Social Studies (Indian)</h4>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available for standards:</h5>
-            <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;">
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">1st-5th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">General Studies</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">6th-8th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">History, Civics, Geography</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">9th-10th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Board Level</div>
-              </div>
-              <div style="min-width: 120px; background: #f3f4f6; padding: 0.75rem; border-radius: 8px; text-align: center;">
-          <div style="font-weight: bold;">11th-12th</div>
-          <div style="font-size: 0.8rem; color: #6b7280;">Humanities</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-        
-       
-          </div>
-        </div>
-      </div>
-      <!-- Languages Courses -->
-      <div id="languages" class="course-category" style="display: none;">
-        <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: #2563eb;">Language Courses</h3>
-        
-        <!-- English -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Teacher" class="teacher-img" style="width: 120px; height: 120px; border-radius: 10px; object-fit: cover; margin-right: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">English</h4>
-              <p style="margin: 0.25rem 0; color: #6b7280; font-size: 0.9rem;">Taught by: Ms. Emily Johnson (MA in English Literature)</p>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available levels:</h5>
-            <div class="standards-scroll">
-              <span>Basic <br><span style="font-size:0.8rem; color:#6b7280;">A1-A2</span></span>
-              <span>Intermediate <br><span style="font-size:0.8rem; color:#6b7280;">B1-B2</span></span>
-              <span>Advanced <br><span style="font-size:0.8rem; color:#6b7280;">C1-C2</span></span>
-              <span>Business <br><span style="font-size:0.8rem; color:#6b7280;">Professional</span></span>
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <h5 style="margin-bottom: 0.5rem; color: #374151;">Price:</h5>
-              <span class="course-price">$15/month</span>
-            </div>
-            <button class="btn btn-primary" onclick="showSection('register')">Register Now</button>
-          </div>
-        </div>
-        
-        <!-- Hindi -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Teacher" class="teacher-img" style="width: 120px; height: 120px; border-radius: 10px; object-fit: cover; margin-right: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">Hindi</h4>
-              <p style="margin: 0.25rem 0; color: #6b7280; font-size: 0.9rem;">Taught by: Mr. Arvind Sharma (MA in Hindi Literature)</p>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available levels:</h5>
-            <div class="standards-scroll">
-              <span>Basic <br><span style="font-size:0.8rem; color:#6b7280;">Beginner</span></span>
-              <span>Intermediate <br><span style="font-size:0.8rem; color:#6b7280;">Conversational</span></span>
-              <span>Advanced <br><span style="font-size:0.8rem; color:#6b7280;">Fluent</span></span>
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <h5 style="margin-bottom: 0.5rem; color: #374151;">Price:</h5>
-              <span class="course-price">$12/month</span>
-            </div>
-            <button class="btn btn-primary" onclick="showSection('register')">Register Now</button>
-          </div>
-        </div>
-        
-        <!-- French -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Teacher" class="teacher-img" style="width: 120px; height: 120px; border-radius: 10px; object-fit: cover; margin-right: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">French</h4>
-              <p style="margin: 0.25rem 0; color: #6b7280; font-size: 0.9rem;">Taught by: Ms. Sophie Martin (Native Speaker, DELF Certified)</p>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available levels:</h5>
-            <div class="standards-scroll">
-              <span>A1 <br><span style="font-size:0.8rem; color:#6b7280;">Beginner</span></span>
-              <span>A2 <br><span style="font-size:0.8rem; color:#6b7280;">Elementary</span></span>
-              <span>B1 <br><span style="font-size:0.8rem; color:#6b7280;">Intermediate</span></span>
-              <span>B2 <br><span style="font-size:0.8rem; color:#6b7280;">Upper Intermediate</span></span>
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <h5 style="margin-bottom: 0.5rem; color: #374151;">Price:</h5>
-              <span class="course-price">$18/month</span>
-            </div>
-            <button class="btn btn-primary" onclick="showSection('register')">Register Now</button>
-          </div>
-        </div>
-      </div>
+                        <!-- Computer -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>Computer</h4>
+                                    <p>Covers basics to CS fundamentals</p>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available for standards:</h5>
+                                <div class="standards-scroll">
+                                    <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basics</span></span>
+                                    <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Fundamentals</span></span>
+                                    <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">IT/CS</span></span>
+                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Computer Science</span></span>
+                                </div>
+                            </div>
+                        </div>
 
-      <!-- Programming Courses -->
-      <div id="programming" class="course-category" style="display: none;">
-        <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: #2563eb;">Programming Courses</h3>
-        
-        <!-- Python -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Teacher" class="teacher-img" style="width: 120px; height: 120px; border-radius: 10px; object-fit: cover; margin-right: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">Python Programming</h4>
-              <p style="margin: 0.25rem 0; color: #6b7280; font-size: 0.9rem;">Taught by: Mr. David Wilson (Senior Software Engineer)</p>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available levels:</h5>
-            <div class="standards-scroll">
-              <span>Beginner <br><span style="font-size:0.8rem; color:#6b7280;">Basics</span></span>
-              <span>Intermediate <br><span style="font-size:0.8rem; color:#6b7280;">OOP, Algorithms</span></span>
-              <span>Advanced <br><span style="font-size:0.8rem; color:#6b7280;">Data Science</span></span>
-              <span>Expert <br><span style="font-size:0.8rem; color:#6b7280;">Web Development</span></span>
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <h5 style="margin-bottom: 0.5rem; color: #374151;">Price:</h5>
-              <span class="course-price">$30/month</span>
-            </div>
-            <button class="btn btn-primary" onclick="showSection('register')">Register Now</button>
-          </div>
-        </div>
-        
-        <!-- C++ -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Teacher" class="teacher-img" style="width: 120px; height: 120px; border-radius: 10px; object-fit: cover; margin-right: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">C++ Programming</h4>
-              <p style="margin: 0.25rem 0; color: #6b7280; font-size: 0.9rem;">Taught by: Mr. Robert Chen (Game Developer)</p>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available levels:</h5>
-            <div class="standards-scroll">
-              <span>Beginner <br><span style="font-size:0.8rem; color:#6b7280;">Basics</span></span>
-              <span>Intermediate <br><span style="font-size:0.8rem; color:#6b7280;">OOP</span></span>
-              <span>Advanced <br><span style="font-size:0.8rem; color:#6b7280;">Data Structures</span></span>
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <h5 style="margin-bottom: 0.5rem; color: #374151;">Price:</h5>
-              <span class="course-price">$25/month</span>
-            </div>
-            <button class="btn btn-primary" onclick="showSection('register')">Register Now</button>
-          </div>
-        </div>
-        
-        <!-- JavaScript -->
-        <div class="subject-card" style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Teacher" class="teacher-img" style="width: 120px; height: 120px; border-radius: 10px; object-fit: cover; margin-right: 1rem;">
-            <div>
-              <h4 style="margin: 0; color: #1f2937;">JavaScript</h4>
-              <p style="margin: 0.25rem 0; color: #6b7280; font-size: 0.9rem;">Taught by: Ms. Sarah Lee (Full Stack Developer)</p>
-            </div>
-          </div>
-          <div style="margin-bottom: 1.5rem;">
-            <h5 style="margin-bottom: 0.5rem; color: #374151;">Available levels:</h5>
-            <div class="standards-scroll">
-              <span>Beginner <br><span style="font-size:0.8rem; color:#6b7280;">Basics</span></span>
-              <span>Intermediate <br><span style="font-size:0.8rem; color:#6b7280;">DOM, ES6</span></span>
-              <span>Advanced <br><span style="font-size:0.8rem; color:#6b7280;">React, Node</span></span>
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <h5 style="margin-bottom: 0.5rem; color: #374151;">Price:</h5>
-              <span class="course-price">$28/month</span>
-            </div>
-            <button class="btn btn-primary" onclick="showSection('register')">Register Now</button>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </section>
+                        <!-- English -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>English</h4>
+                                    <p>Grammar, Reading & Literature</p>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available for standards:</h5>
+                                <div class="standards-scroll">
+                                    <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basic English</span></span>
+                                    <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Grammar & Literature</span></span>
+                                    <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
+                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced English</span></span>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- Social Studies -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>Social Studies (Indian)</h4>
+                                    <p>History, Civics, Geography & more</p>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available for standards:</h5>
+                                <div class="standards-scroll">
+                                    <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">General Studies</span></span>
+                                    <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">History, Civics, Geography</span></span>
+                                    <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
+                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Humanities</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Language Courses -->
+                <div id="languages" class="course-category">
+                    <h3>Language Courses</h3>
+                    <div class="subjects-grid">
+                        <!-- English -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>English</h4>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available levels:</h5>
+                                <div class="levels-scroll">
+                                    <div class="level-badge">
+                                        <div class="level-name">Basic</div>
+                                        <div class="level-desc">A1-A2</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Intermediate</div>
+                                        <div class="level-desc">B1-B2</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Advanced</div>
+                                        <div class="level-desc">C1-C2</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Business</div>
+                                        <div class="level-desc">Professional</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-  <!-- Query Section -->
-  <section id="query" class="section">
+                        <!-- Hindi -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>Hindi</h4>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available levels:</h5>
+                                <div class="levels-scroll">
+                                    <div class="level-badge">
+                                        <div class="level-name">Basic</div>
+                                        <div class="level-desc">Beginner</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Intermediate</div>
+                                        <div class="level-desc">Conversational</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Advanced</div>
+                                        <div class="level-desc">Fluent</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- French -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>French</h4>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available levels:</h5>
+                                <div class="levels-scroll">
+                                    <div class="level-badge">
+                                        <div class="level-name">A1</div>
+                                        <div class="level-desc">Beginner</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">A2</div>
+                                        <div class="level-desc">Elementary</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">B1</div>
+                                        <div class="level-desc">Intermediate</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">B2</div>
+                                        <div class="level-desc">Upper Intermediate</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming Courses -->
+                <div id="programming" class="course-category">
+                    <h3>Programming Courses</h3>
+                    <div class="subjects-grid">
+                        <!-- Python -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>Python Programming</h4>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available levels:</h5>
+                                <div class="levels-scroll">
+                                    <div class="level-badge">
+                                        <div class="level-name">Beginner</div>
+                                        <div class="level-desc">Basics</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Intermediate</div>
+                                        <div class="level-desc">OOP, Algorithms</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Advanced</div>
+                                        <div class="level-desc">Data Science</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Expert</div>
+                                        <div class="level-desc">Web Development</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- C++ -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>C++ Programming</h4>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available levels:</h5>
+                                <div class="levels-scroll">
+                                    <div class="level-badge">
+                                        <div class="level-name">Beginner</div>
+                                        <div class="level-desc">Basics</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Intermediate</div>
+                                        <div class="level-desc">OOP</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Advanced</div>
+                                        <div class="level-desc">Data Structures</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <div>
+                                    <h4>JavaScript</h4>
+                                </div>
+                            </div>
+                            <div class="subject-content">
+                                <h5>Available levels:</h5>
+                                <div class="levels-scroll">
+                                    <div class="level-badge">
+                                        <div class="level-name">Beginner</div>
+                                        <div class="level-desc">Basics</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Intermediate</div>
+                                        <div class="level-desc">DOM, ES6</div>
+                                    </div>
+                                    <div class="level-badge">
+                                        <div class="level-name">Advanced</div>
+                                        <div class="level-desc">React, Node</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Contact us Section -->
+  <section id="Contact" class="section">
     <div class="form-section">
       <div class="container">
         <div class="section-header">
-          <h2>Have Questions?</h2>
-          <p>We're here to help you succeed</p>
-        </div>
-
-        <div class="form-container">
-          <form onsubmit="handleContactForm(event)">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            </div>
-
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="What's your question about?" required>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell us more about your question..."
-                required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Register Section -->
-  <section id="register" class="section">
-    <div class="form-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Join Us Today</h2>
-          <p>Create your account and start learning</p>
+          <h2>Contact Us Today</h2>
         </div>
 
         <div class="form-container">
@@ -1055,35 +1150,55 @@
               <label for="phone">Phone Number</label>
               <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
             </div>
+          <div class="form-group">
+  <label for="courseType">Select type of Course</label>
+  <select id="courseType" name="courseType" required class="custom-select">
+    <option value="" disabled selected>Select your course type</option>
+    <option value="academic">Academic</option>
+    <option value="language">Language</option>
+    <option value="programming">Programming</option>
+    <option value="other">Other</option>
+  </select>
+</div>
 
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" id="password" name="password" placeholder="Create a password" required>
-            </div>
+<div class="form-group">
+  <label for="country">Country</label>
+  <select id="country" name="country" required class="custom-select">
+    <option value="" disabled selected>Select your country</option>
+    <option value="india">India</option>
+    <option value="usa">USA</option>
+    <option value="uk">UK</option>
+    <option value="canada">Canada</option>
+    <option value="australia">Australia</option>
+    <option value="other">Other</option>
+  </select>
+</div>
 
-            <div class="form-group">
-              <label for="confirmPassword">Confirm Password</label>
-              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password"
-                required>
-            </div>
+<div class="form-group">
+  <label for="board">Select Board</label>
+  <select id="board" name="board" required class="custom-select">
+    <option value="" disabled selected>Select your board</option>
+    <option value="cbse">CBSE</option>
+    <option value="icse">ICSE</option>
+    <option value="state">State Board</option>
+    <option value="ib">IB</option>
+    <option value="igcse">IGCSE</option>
+    <option value="other">Other</option>
+  </select>
+</div>
 
-            <div class="form-group">
-              <div class="checkbox-group">
-                <input type="checkbox" id="terms" name="terms" required>
-                <label for="terms">I agree to the Terms and Conditions</label>
-              </div>
-            </div>
+<div class="form-group">
+  <label for="demoClass">Demo Class</label>
+  <select id="demoClass" name="demoClass" required class="custom-select">
+    <option value="" disabled selected>Select a demo class</option>
+    <option value="yes">Yes, I want a demo class</option>
+    <option value="no">No, I don't need a demo class</option>
+  </select>
+</div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Done</button>
           </form>
 
-          <div style="text-align: center; margin-top: 1.5rem;">
-            <p style="color: #6b7280;">
-              Already have an account?
-              <span style="color: #2563eb; cursor: pointer; text-decoration: underline;"
-                onclick="alert('Sign in functionality would be implemented here')">Sign in</span>
-            </p>
-          </div>
         </div>
       </div>
     </div>
