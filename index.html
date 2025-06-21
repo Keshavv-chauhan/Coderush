@@ -908,164 +908,170 @@
       document.getElementById('Contact').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
-
-    <!-- Contact us Section -->
-      <section id="Contact" class="section">
-        <div class="form-section">
-          <div class="container">
-            <div class="section-header">
-              <h2>Contact Us Today</h2>
-            </div>
-
-            <div class="form-container">
-              <form action="https://submit-form.com/IkUFckCIk" onsubmit="handleRegistrationForm(event)">
-                <div class="form-group">
-                  <label for="regName">Full Name</label>
-                  <input type="text" id="regName" name="regName" placeholder="Enter your full name" required>
-                </div>
-
-                <div class="form-group">
-                  <label for="regEmail">Email Address</label>
-                  <input type="email" id="regEmail" name="regEmail" placeholder="Enter your email" required>
-                </div>
-
-                <div class="form-group">
-                  <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                </div>
-              <div class="form-group">
-      <label for="courseType">Select type of Course</label>
-      <select id="courseType" name="courseType" required class="custom-select elegant-select" onchange="updateCourseDropdown()">
-        <option value="" disabled selected>Select your course type</option>
-        <option value="academic">Academic</option>
-        <option value="language">Language</option>
-        <option value="programming">Programming</option>
-        <option value="other">Other</option>
-      </select>
+<!-- Contact Us Section -->
+<section id="Contact" class="section">
+  <div class="form-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contact Us Today</h2>
       </div>
 
-      <div class="form-group" id="courseDropdownContainer" style="display: none;">
-        <label for="courseSelect">Select Course</label>
-        <select id="courseSelect" name="courseSelect" required class="custom-select elegant-select">
-          <!-- Options will be populated dynamically -->
-        </select>
-      </div>
-
-      <script>
-        // Course options for each type
-        const courseOptions = {
-          academic: [
-            "Mathematics",
-            "Science",
-            "Chemistry",
-            "Physics",
-            "Biology",
-            "Computer",
-            "English",
-            "Social Studies (Indian)"
-          ],
-          language: [
-            "English",
-            "Hindi",
-            "Punjabi",
-            "Sanskrit",
-            "German",
-            "Japanese",
-            "French"
-          ],
-          programming: [
-            "Python Programming",
-            "C++ Programming",
-            "Full Stack Development",
-            "Google Arcade",
-            "C Programming Basics",
-            "Data Structures & Algorithms (C)",
-            "DBMS",
-            "PHP",
-            "HTML & JavaScript",
-            "Computer Graphics",
-            "Java Programming"
-          ],
-          other: [
-            "Other"
-          ]
-        };
-
-        function updateCourseDropdown() {
-          const type = document.getElementById('courseType').value;
-          const container = document.getElementById('courseDropdownContainer');
-          const select = document.getElementById('courseSelect');
-
-          if (type && courseOptions[type]) {
-            // Show dropdown
-            container.style.display = 'block';
-            // Remove old options
-            select.innerHTML = '';
-            // Add placeholder
-            const placeholder = document.createElement('option');
-            placeholder.value = '';
-            placeholder.disabled = true;
-            placeholder.selected = true;
-            placeholder.textContent = 'Select your course';
-            select.appendChild(placeholder);
-            // Add new options
-            courseOptions[type].forEach(course => {
-              const opt = document.createElement('option');
-              opt.value = course;
-              opt.textContent = course;
-              select.appendChild(opt);
-            });
-            select.required = true;
-          } else {
-            container.style.display = 'none';
-            select.required = false;
-          }
-        }
-      </script>
-
-
-    <div class="form-group">
-      <label for="country">Country</label>
-      <select id="country" name="country" required class="custom-select elegant-select">
-        <option value="" disabled selected>Select your country</option>
-        <option value="india">India</option>
-        <option value="usa">USA</option>
-        <option value="uk">UK</option>
-        <option value="canada">Canada</option>
-        <option value="australia">Australia</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="board">Select Board</label>
-      <select id="board" name="board" required class="custom-select elegant-select">
-        <option value="" disabled selected>Select your board</option>
-        <option value="cbse">CBSE</option>
-        <option value="icse">ICSE</option>
-        <option value="state">State Board</option>
-        <option value="ib">IB</option>
-        <option value="igcse">IGCSE</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="demoClass">Demo Class</label>
-      <select id="demoClass" name="demoClass" required class="custom-select elegant-select">
-        <option value="" disabled selected>Select a demo class</option>
-        <option value="yes">Yes, I want a demo class</option>
-        <option value="no">No, I don't need a demo class</option>
-      </select>
-    </div>
-
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Done</button>
-              </form>
-
-            </div>
+      <div class="form-container">
+        <form action="https://submit-form.com/IkUFckCIk" method="POST">
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="regName">Full Name</label>
+            <input type="text" id="regName" name="regName" placeholder="Enter your full name" required>
           </div>
-        </div>
-      </section>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="regEmail">Email Address</label>
+            <input type="email" id="regEmail" name="regEmail" placeholder="Enter your email" required>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+          </div>
+
+          <!-- Course Type -->
+          <div class="form-group">
+            <label for="courseType">Select type of Course</label>
+            <select id="courseType" name="courseType" required class="custom-select elegant-select" onchange="updateCourseDropdown()">
+              <option value="" disabled selected>Select your course type</option>
+              <option value="academic">Academic</option>
+              <option value="language">Language</option>
+              <option value="programming">Programming</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Course Dropdown (Dynamic) -->
+          <div class="form-group" id="courseDropdownContainer" style="display: none;">
+            <label for="courseSelect">Select Course</label>
+            <select id="courseSelect" name="courseSelect" required class="custom-select elegant-select">
+              <!-- Options will be populated dynamically -->
+            </select>
+          </div>
+
+          <!-- Country -->
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" name="country" required class="custom-select elegant-select">
+              <option value="" disabled selected>Select your country</option>
+              <option value="india">India</option>
+              <option value="usa">USA</option>
+              <option value="uk">UK</option>
+              <option value="canada">Canada</option>
+              <option value="australia">Australia</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Board -->
+          <div class="form-group">
+            <label for="board">Select Board</label>
+            <select id="board" name="board" required class="custom-select elegant-select">
+              <option value="" disabled selected>Select your board</option>
+              <option value="cbse">CBSE</option>
+              <option value="icse">ICSE</option>
+              <option value="state">State Board</option>
+              <option value="ib">IB</option>
+              <option value="igcse">IGCSE</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Demo Class -->
+          <div class="form-group">
+            <label for="demoClass">Demo Class</label>
+            <select id="demoClass" name="demoClass" required class="custom-select elegant-select">
+              <option value="" disabled selected>Select a demo class</option>
+              <option value="yes">Yes, I want a demo class</option>
+              <option value="no">No, I don't need a demo class</option>
+            </select>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Done</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for dynamic course selection -->
+<script>
+  const courseOptions = {
+    academic: [
+      "Mathematics",
+      "Science",
+      "Chemistry",
+      "Physics",
+      "Biology",
+      "Computer",
+      "English",
+      "Social Studies (Indian)"
+    ],
+    language: [
+      "English",
+      "Hindi",
+      "Punjabi",
+      "Sanskrit",
+      "German",
+      "Japanese",
+      "French"
+    ],
+    programming: [
+      "Python Programming",
+      "C++ Programming",
+      "Full Stack Development",
+      "Google Arcade",
+      "C Programming Basics",
+      "Data Structures & Algorithms (C)",
+      "DBMS",
+      "PHP",
+      "HTML & JavaScript",
+      "Computer Graphics",
+      "Java Programming"
+    ],
+    other: [
+      "Other"
+    ]
+  };
+
+  function updateCourseDropdown() {
+    const type = document.getElementById('courseType').value;
+    const container = document.getElementById('courseDropdownContainer');
+    const select = document.getElementById('courseSelect');
+
+    if (type && courseOptions[type]) {
+      container.style.display = 'block';
+      select.innerHTML = '';
+
+      const placeholder = document.createElement('option');
+      placeholder.value = '';
+      placeholder.disabled = true;
+      placeholder.selected = true;
+      placeholder.textContent = 'Select your course';
+      select.appendChild(placeholder);
+
+      courseOptions[type].forEach(course => {
+        const opt = document.createElement('option');
+        opt.value = course;
+        opt.textContent = course;
+        select.appendChild(opt);
+      });
+
+      select.required = true;
+    } else {
+      container.style.display = 'none';
+      select.required = false;
+    }
+  }
+</script>
 
 
   <style>
