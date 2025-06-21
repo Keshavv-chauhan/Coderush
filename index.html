@@ -6,562 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>APlus Learning - Learn and Grow</title>
   <meta name="description" content="Transform your career with expert courses" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-/* Navigation */
-nav {
-  background: white;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  transition: all 0.3s ease-in-out;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.imagelogo {
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #2563eb;
-}
-
-/* Navigation Links */
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-}
-
-.nav-links button {
-  background: none;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  color: #374151;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.nav-links button:hover,
-.nav-links button.active {
-  background: #dbeafe;
-  color: #2563eb;
-  transform: scale(1.05);
-}
-
-/* Mobile Menu Button */
-.mobile-menu {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #2563eb;
-}
-
-/* Mobile Navigation Panel */
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 2rem;
-  border-top: 1px solid #e5e7eb;
-  background-color: white;
-}
-
-.mobile-nav button {
-  background: none;
-  border: none;
-  padding: 0.8rem;
-  font-size: 1rem;
-  text-align: left;
-  cursor: pointer;
-  color: #374151;
-  transition: all 0.3s ease;
-}
-
-.mobile-nav button:hover {
-  background: #dbeafe;
-  color: #2563eb;
-  border-radius: 6px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .mobile-menu {
-    display: block;
-  }
-
-  .mobile-nav {
-    display: flex;
-  }
-}
-
-    /* Sections */
-    .section {
-      display: none;
-      min-height: 100vh;
-      padding-top: 80px;
-    }
-
-    .section.active {
-      display: block;
-    }
-
-    /* Home Section */
-    .hero {
-      background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
-      padding: 5rem 0;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
-
-    .hero .highlight {
-      color: #2563eb;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: #6b7280;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 0.75rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      background: #2563eb;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #1d4ed8;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #2563eb;
-      border: 2px solid #2563eb;
-    }
-
-    .btn-secondary:hover {
-      background: #2563eb;
-      color: white;
-    }
-
-    .features {
-      padding: 4rem 0;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .feature-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    .feature-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
- * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .courses {
-            background: #f9fafb;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: #6b7280;
-        }
-
-        /* Course Categories Navigation */
-        .course-categories {
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary {
-            background: #e5e7eb;
-            color: #374151;
-        }
-
-        .btn-secondary:hover,
-        .btn-secondary.active {
-            background: #2563eb;
-            color: white;
-        }
-
-        /* Course Category */
-        .course-category {
-            display: none;
-        }
-
-        .course-category.active {
-            display: block;
-        }
-
-        .course-category h3 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-            color: #2563eb;
-        }
-        .form-group {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  color: #374151;
-  font-weight: 500;
-}
-
-.custom-select {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  background-color: #f9fafb;
-  color: #1f2937;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  outline: none;
-  width: 100%;
-}
-
-.custom-select:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-}
-
-.custom-select option {
-  padding: 0.5rem;
-}
-
-
-        /* Subject Cards Grid */
-        .subjects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .subject-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            min-height: 200px;
-        }
-
-        .subject-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .subject-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .subject-header h4 {
-            margin: 0;
-            color: #1f2937;
-            font-size: 1.25rem;
-        }
-
-        .subject-header p {
-            margin: 0.25rem 0 0 0;
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-
-        .subject-content {
-            flex: 1;
-        }
-
-        .subject-content h5 {
-            margin-bottom: 0.75rem;
-            color: #374151;
-            font-size: 1rem;
-        }
-
-        /* Standards/Levels Display */
-        .standards-scroll,
-        .levels-scroll {
-            display: flex;
-            gap: 0.75rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .standards-scroll span,
-        .level-badge {
-            min-width: 100px;
-            background: #f3f4f6;
-            padding: 0.55rem;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #374151;
-            flex-shrink: 0;
-        }
-
-        .level-badge {
-            min-width: 120px;
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .level-badge .level-name {
-            font-weight: bold;
-            color: #1f2937;
-        }
-
-        .level-badge .level-desc {
-            font-size: 0.8rem;
-            color: #6b7280;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .subjects-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .subject-card {
-                min-height: 180px;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .course-category h3 {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .subjects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1025px) {
-            .subjects-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-    /* Forms */
-    .form-section {
-      padding: 5rem 0;
-      background: #f9fafb;
-    }
-
-    .form-container {
-      max-width: 500px;
-      margin: 0 auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      color: #374151;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    .checkbox-group {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .checkbox-group input {
-      width: auto;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .mobile-menu {
-        display: block;
-      }
-
-      .mobile-nav.show {
-        display: flex;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 250px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css" />
+  
 </head>
 
 <body>
@@ -573,24 +19,21 @@ label {
       <ul class="nav-links">
         <li><button onclick="showSection('home')" class="nav-btn active">Home</button></li>
         <li><button onclick="showSection('courses')" class="nav-btn">Courses</button></li>
-        
         <li><button onclick="showSection('Contact')" class="nav-btn">Contact Us</button></li>
         <li><button onclick="showSection('about')" class="nav-btn">About Us</button></li>
-
       </ul>
 
-      <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+      <button class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Open navigation menu">☰</button>
     </div>
 
-    <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav" id="mobileNav" style="display: none;">
       <button onclick="showSection('home'); toggleMobileMenu()">Home</button>
       <button onclick="showSection('courses'); toggleMobileMenu()">Courses</button>
-      
-      <button onclick="showSection('query'); toggleMobileMenu()">Contact Us</button>
-      <button onclick="showSection('register'); toggleMobileMenu()">Register</button>
+      <button onclick="showSection('Contact'); toggleMobileMenu()">Contact Us</button>
       <button onclick="showSection('about'); toggleMobileMenu()">About Us</button>
     </div>
   </nav>
+  
 
   <!-- Home Section -->
   <section id="home" class="section active">
@@ -661,7 +104,7 @@ label {
           </div>
           <div style="flex: 1 1 180px; max-width: 220px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Google_Classroom_Logo.png" alt="Google Classroom" style="height: 40px; margin-bottom: 1rem;">
-            <div style="font-weight: bold; color: #1f2937;">Google Classroom</div>
+            <div style="font-weight: bold; color: #1f2937;">Google Meet</div>
             <div style="font-size: 0.9rem; color: #6b7280;">Assignments & resources</div>
           </div>
           <div style="flex: 1 1 180px; max-width: 220px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
@@ -708,7 +151,6 @@ label {
   </section>
 
   
-
   <!-- About Us Section -->
   <section id="about" class="section">
     <div class="form-section">
@@ -717,50 +159,44 @@ label {
           <h2>About APlus Learning Institute</h2>
           <p>Empowering learners worldwide with quality education</p>
         </div>
-        <div
-          style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
           <div style="margin-bottom: 2rem;">
             <h3 style="color: #2563eb; margin-bottom: 1rem; font-size: 1.5rem;">Our Vision</h3>
             <p style="line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
-            To become the most trusted and accessible online learning platform for students worldwide by delivering high-quality, personalized education from India, bridging borders with knowledge and technology.
+              To become the most trusted and accessible online learning platform for students worldwide by delivering high-quality, personalized education from India, bridging borders with knowledge and technology.
             </p>
           </div>
-
-        <div
-          style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
           <div style="margin-bottom: 2rem;">
             <h3 style="color: #2563eb; margin-bottom: 1rem; font-size: 1.5rem;">Our Story</h3>
             <p style="line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
-              Founded in 2020, APlus Learning Institute has been at the forefront of online education,
+              Founded in 2023 and established in 2024, APlus Learning Institute has been at the forefront of online education,
               providing high-quality courses to students worldwide. Our mission is to make quality
               education accessible to everyone, regardless of their location or background.
             </p>
           </div>
-
           <div style="margin-bottom: 2rem;">
             <h3 style="color: #2563eb; margin-bottom: 1rem; font-size: 1.5rem;">Our Mission</h3>
             <p style="line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
               Our mission is to deliver a well-rounded and accessible online learning experience for school students, college learners, and professionals in Dubai by:
-             <br>
+              <br>
               Providing expert-led tutoring in core academic subjects (Math, Science, English, Social Studies) aligned with CBSE, ICSE, British, IB, and American curricula.
-             <br>
+              <br>
               Offering specialized, hands-on courses in Computer Science, Artificial Intelligence, Python, coding, and project-based tech learning.
-             <br>
+              <br>
               Promoting cultural identity by teaching Indian languages like Hindi, Punjabi, and Sanskrit to students of Indian origin.
-             <br>
+              <br>
               Enabling global communication skills through foreign language programs in German, Spanish, and Japanese, taught by certified language instructors.
-             <br>
+              <br>
               Utilizing digital tools, live interactive sessions, personalized mentorship, and performance tracking to create a seamless and engaging online learning journey.
-             <br>
+              <br>
               Operating from India, leveraging the country's educational talent to deliver cost-effective, high-quality tutoring
             </p>
           </div>
-
           <div style="margin-bottom: 2rem;">
             <h3 style="color: #2563eb; margin-bottom: 1rem; font-size: 1.5rem;">Why Choose Us?</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
               <div style="padding: 1rem; background: #f8fafc; border-radius: 8px;">
-                <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Personalized Learning </h4>
+                <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Personalized Learning</h4>
               </div>
               <div style="padding: 1rem; background: #f8fafc; border-radius: 8px;">
                 <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Flexible Learning</h4>
@@ -769,10 +205,7 @@ label {
                 <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Promoting Culture</h4>
               </div>
               <div style="padding: 1rem; background: #f8fafc; border-radius: 8px;">
-                <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Expert Tutor </h4>
-              </div>
-            </div>
-          </div>
+                <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Expert Tutor</h4>
               </div>
             </div>
           </div>
@@ -780,431 +213,899 @@ label {
       </div>
     </div>
   </section>
-  <section id="courses" class="section">
-        <div class="courses">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Our Courses</h2>
-                    <p>Choose from our comprehensive selection of courses</p>
-                </div>
 
-                <!-- Course Categories Navigation -->
-                <div class="course-categories">
-                    <button class="btn btn-secondary active" onclick="showCourseCategory('academics')" id="academicsBtn">Academics</button>
-                    <button class="btn btn-secondary" onclick="showCourseCategory('languages')" id="languagesBtn">Languages</button>
-                    <button class="btn btn-secondary" onclick="showCourseCategory('programming')" id="programmingBtn">Programming</button>
-                </div>
+    <section id="courses" class="section">
+          <div class="courses">
+              <div class="container">
+                  <div class="section-header">
+                      <h2>Our Courses</h2>
+                      <p>Choose from our comprehensive selection of courses</p>
+                  </div>
 
-                <!-- Academics Courses -->
-                <div id="academics" class="course-category active">
-                    <h3>Academic Subjects</h3>
-                    <div class="subjects-grid">
-                        <!-- Mathematics -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>Mathematics</h4>
-                                    <p>Concepts from basic to advanced level</p>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available for standards:</h5>
-                                <div class="standards-scroll">
-                                    <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basic Concepts</span></span>
-                                    <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Intermediate</span></span>
-                                    <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
-                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced</span></span>
-                                </div>
-                            </div>
-                        </div>
+                  <!-- Course Categories Navigation -->
+                  <div class="course-categories">
+                      <button class="btn btn-secondary active" onclick="showCourseCategory('academics')" id="academicsBtn">Academics</button>
+                      <button class="btn btn-secondary" onclick="showCourseCategory('languages')" id="languagesBtn">Languages</button>
+                      <button class="btn btn-secondary" onclick="showCourseCategory('programming')" id="programmingBtn">Programming</button>
+                  </div>
 
-                        <!-- Science -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>Science</h4>
-                                    <p>Covers Physics, Chemistry & Biology</p>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available for standards:</h5>
-                                <div class="standards-scroll">
-                                    <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">General Science</span></span>
-                                    <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">PCB Basics</span></span>
-                                    <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
-                                </div>
-                            </div>
-                        </div>
+                  <!-- Academics Courses -->
+                  <div id="academics" class="course-category active">
+                      <h3>Academic Subjects</h3>
+                      <div class="subjects-grid">
+                          <!-- Mathematics -->
+                          <div class="subject-card clickable-course" data-type="academic" data-course="Mathematics" onclick="goToContact('academic','Mathematics')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>Mathematics</h4>
+                                      <p>Concepts from basic to advanced level</p>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available for standards:</h5>
+                                  <div class="standards-scroll">
+                                      <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basic Concepts</span></span>
+                                      <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Intermediate</span></span>
+                                      <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
+                                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced</span></span>
+                                  </div>
+                              </div>
+                          </div>
 
-                        <!-- Chemistry -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>Chemistry</h4>
-                                    <p>Inorganic, Organic & Physical</p>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available for standards:</h5>
-                                <div class="standards-scroll">
-                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Chemistry</span></span>
-                                </div>
-                            </div>
-                        </div>
+                          <!-- Science -->
+                          <div class="subject-card clickable-course" data-type="academic" data-course="Science" onclick="goToContact('academic','Science')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>Science</h4>
+                                      <p>Covers Physics, Chemistry & Biology</p>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available for standards:</h5>
+                                  <div class="standards-scroll">
+                                      <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">General Science</span></span>
+                                      <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">PCB Basics</span></span>
+                                      <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
+                                  </div>
+                              </div>
+                          </div>
 
-                        <!-- Physics -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>Physics</h4>
-                                    <p>Mechanics, Thermodynamics, EM, etc.</p>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available for standards:</h5>
-                                <div class="standards-scroll">
-                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Physics</span></span>
-                                </div>
-                            </div>
-                        </div>
+                          <!-- Chemistry -->
+                          <div class="subject-card clickable-course" data-type="academic" data-course="Chemistry" onclick="goToContact('academic','Chemistry')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>Chemistry</h4>
+                                      <p>Inorganic, Organic & Physical</p>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available for standards:</h5>
+                                  <div class="standards-scroll">
+                                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Chemistry</span></span>
+                                  </div>
+                              </div>
+                          </div>
 
-                        <!-- Biology -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>Biology</h4>
-                                    <p>Zoology, Botany, and Human Biology</p>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available for standards:</h5>
-                                <div class="standards-scroll">
-                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Biology</span></span>
-                                </div>
-                            </div>
-                        </div>
+                          <!-- Physics -->
+                          <div class="subject-card clickable-course" data-type="academic" data-course="Physics" onclick="goToContact('academic','Physics')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>Physics</h4>
+                                      <p>Mechanics, Thermodynamics, EM, etc.</p>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available for standards:</h5>
+                                  <div class="standards-scroll">
+                                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Physics</span></span>
+                                  </div>
+                              </div>
+                          </div>
 
-                        <!-- Computer -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>Computer</h4>
-                                    <p>Covers basics to CS fundamentals</p>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available for standards:</h5>
-                                <div class="standards-scroll">
-                                    <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basics</span></span>
-                                    <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Fundamentals</span></span>
-                                    <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">IT/CS</span></span>
-                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Computer Science</span></span>
-                                </div>
-                            </div>
-                        </div>
+                          <!-- Biology -->
+                          <div class="subject-card clickable-course" data-type="academic" data-course="Biology" onclick="goToContact('academic','Biology')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>Biology</h4>
+                                      <p>Zoology, Botany, and Human Biology</p>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available for standards:</h5>
+                                  <div class="standards-scroll">
+                                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Biology</span></span>
+                                  </div>
+                              </div>
+                          </div>
 
-                        <!-- English -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>English</h4>
-                                    <p>Grammar, Reading & Literature</p>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available for standards:</h5>
-                                <div class="standards-scroll">
-                                    <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basic English</span></span>
-                                    <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Grammar & Literature</span></span>
-                                    <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
-                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced English</span></span>
-                                </div>
-                            </div>
-                        </div>
+                          <!-- Computer -->
+                          <div class="subject-card clickable-course" data-type="academic" data-course="Computer" onclick="goToContact('academic','Computer')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>Computer</h4>
+                                      <p>Covers basics to CS fundamentals</p>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available for standards:</h5>
+                                  <div class="standards-scroll">
+                                      <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basics</span></span>
+                                      <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Fundamentals</span></span>
+                                      <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">IT/CS</span></span>
+                                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Computer Science</span></span>
+                                  </div>
+                              </div>
+                          </div>
 
-                        <!-- Social Studies -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>Social Studies (Indian)</h4>
-                                    <p>History, Civics, Geography & more</p>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available for standards:</h5>
-                                <div class="standards-scroll">
-                                    <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">General Studies</span></span>
-                                    <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">History, Civics, Geography</span></span>
-                                    <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
-                                    <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Humanities</span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                          <!-- English -->
+                          <div class="subject-card clickable-course" data-type="academic" data-course="English" onclick="goToContact('academic','English')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>English</h4>
+                                      <p>Grammar, Reading & Literature</p>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available for standards:</h5>
+                                  <div class="standards-scroll">
+                                      <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basic English</span></span>
+                                      <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Grammar & Literature</span></span>
+                                      <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
+                                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced English</span></span>
+                                  </div>
+                              </div>
+                          </div>
 
-                <!-- Language Courses -->
-                <div id="languages" class="course-category">
+                          <!-- Social Studies -->
+                          <div class="subject-card clickable-course" data-type="academic" data-course="Social Studies (Indian)" onclick="goToContact('academic','Social Studies (Indian)')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>Social Studies (Indian)</h4>
+                                      <p>History, Civics, Geography & more</p>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available for standards:</h5>
+                                  <div class="standards-scroll">
+                                      <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">General Studies</span></span>
+                                      <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">History, Civics, Geography</span></span>
+                                      <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
+                                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Humanities</span></span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Language Courses -->
+                  <div id="languages" class="course-category">
                     <h3>Language Courses</h3>
                     <div class="subjects-grid">
-                        <!-- English -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>English</h4>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available levels:</h5>
-                                <div class="levels-scroll">
-                                    <div class="level-badge">
-                                        <div class="level-name">Basic</div>
-                                        <div class="level-desc">A1-A2</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Intermediate</div>
-                                        <div class="level-desc">B1-B2</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Advanced</div>
-                                        <div class="level-desc">C1-C2</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Business</div>
-                                        <div class="level-desc">Professional</div>
-                                    </div>
-                                </div>
-                            </div>
+                      <!-- English -->
+                      <div class="subject-card clickable-course" data-type="language" data-course="English" onclick="goToContact('language','English')">
+                        <div class="subject-header">
+                          <div>
+                            <h4>English</h4>
+                          </div>
                         </div>
-
-                        <!-- Hindi -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>Hindi</h4>
-                                </div>
+                        <div class="subject-content">
+                          <h5>Available levels:</h5>
+                          <div class="levels-scroll">
+                            <div class="level-badge">
+                              <div class="level-name">Basic</div>
+                              <div class="level-desc">A1-A2</div>
                             </div>
-                            <div class="subject-content">
-                                <h5>Available levels:</h5>
-                                <div class="levels-scroll">
-                                    <div class="level-badge">
-                                        <div class="level-name">Basic</div>
-                                        <div class="level-desc">Beginner</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Intermediate</div>
-                                        <div class="level-desc">Conversational</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Advanced</div>
-                                        <div class="level-desc">Fluent</div>
-                                    </div>
-                                </div>
+                            <div class="level-badge">
+                              <div class="level-name">Intermediate</div>
+                              <div class="level-desc">B1-B2</div>
                             </div>
+                            <div class="level-badge">
+                              <div class="level-name">Advanced</div>
+                              <div class="level-desc">C1-C2</div>
+                            </div>
+                            <div class="level-badge">
+                              <div class="level-name">Business</div>
+                              <div class="level-desc">Professional</div>
+                            </div>
+                          </div>
                         </div>
+                      </div>
 
-                        <!-- French -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>French</h4>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available levels:</h5>
-                                <div class="levels-scroll">
-                                    <div class="level-badge">
-                                        <div class="level-name">A1</div>
-                                        <div class="level-desc">Beginner</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">A2</div>
-                                        <div class="level-desc">Elementary</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">B1</div>
-                                        <div class="level-desc">Intermediate</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">B2</div>
-                                        <div class="level-desc">Upper Intermediate</div>
-                                    </div>
-                                </div>
-                            </div>
+                      <!-- Punjabi -->
+                      <div class="subject-card clickable-course" data-type="language" data-course="Punjabi" onclick="goToContact('language','Punjabi')">
+                        <div class="subject-header">
+                          <div>
+                            <h4>Panjabi</h4>
+                          </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Programming Courses -->
-                <div id="programming" class="course-category">
-                    <h3>Programming Courses</h3>
-                    <div class="subjects-grid">
-                        <!-- Python -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>Python Programming</h4>
-                                </div>
+                        <div class="subject-content">
+                          <h5>Available levels:</h5>
+                          <div class="levels-scroll">
+                            <div class="level-badge">
+                              <div class="level-name">Basic</div>
+                              <div class="level-desc">Beginner</div>
                             </div>
-                            <div class="subject-content">
-                                <h5>Available levels:</h5>
-                                <div class="levels-scroll">
-                                    <div class="level-badge">
-                                        <div class="level-name">Beginner</div>
-                                        <div class="level-desc">Basics</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Intermediate</div>
-                                        <div class="level-desc">OOP, Algorithms</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Advanced</div>
-                                        <div class="level-desc">Data Science</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Expert</div>
-                                        <div class="level-desc">Web Development</div>
-                                    </div>
-                                </div>
+                            <div class="level-badge">
+                              <div class="level-name">Intermediate</div>
+                              <div class="level-desc">Conversational</div>
                             </div>
+                            <div class="level-badge">
+                              <div class="level-name">Advanced</div>
+                              <div class="level-desc">Fluent</div>
+                            </div>
+                          </div>
                         </div>
+                      </div>
 
-                        <!-- C++ -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>C++ Programming</h4>
-                                </div>
-                            </div>
-                            <div class="subject-content">
-                                <h5>Available levels:</h5>
-                                <div class="levels-scroll">
-                                    <div class="level-badge">
-                                        <div class="level-name">Beginner</div>
-                                        <div class="level-desc">Basics</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Intermediate</div>
-                                        <div class="level-desc">OOP</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Advanced</div>
-                                        <div class="level-desc">Data Structures</div>
-                                    </div>
-                                </div>
-                            </div>
+                      <!-- Sanskrit -->
+                      <div class="subject-card clickable-course" data-type="language" data-course="Sanskrit" onclick="goToContact('language','Sanskrit')">
+                        <div class="subject-header">
+                          <div>
+                            <h4>Sanskrit</h4>
+                          </div>
                         </div>
-
-                        <!-- JavaScript -->
-                        <div class="subject-card">
-                            <div class="subject-header">
-                                <div>
-                                    <h4>JavaScript</h4>
-                                </div>
+                        <div class="subject-content">
+                          <h5>Available levels:</h5>
+                          <div class="levels-scroll">
+                            <div class="level-badge">
+                              <div class="level-name">Basic</div>
+                              <div class="level-desc">Beginner</div>
                             </div>
-                            <div class="subject-content">
-                                <h5>Available levels:</h5>
-                                <div class="levels-scroll">
-                                    <div class="level-badge">
-                                        <div class="level-name">Beginner</div>
-                                        <div class="level-desc">Basics</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Intermediate</div>
-                                        <div class="level-desc">DOM, ES6</div>
-                                    </div>
-                                    <div class="level-badge">
-                                        <div class="level-name">Advanced</div>
-                                        <div class="level-desc">React, Node</div>
-                                    </div>
-                                </div>
+                            <div class="level-badge">
+                              <div class="level-name">Intermediate</div>
+                              <div class="level-desc">Conversational</div>
                             </div>
+                            <div class="level-badge">
+                              <div class="level-name">Advanced</div>
+                              <div class="level-desc">Fluent</div>
+                            </div>
+                          </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                      </div>
 
-<!-- Contact us Section -->
-  <section id="Contact" class="section">
-    <div class="form-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Contact Us Today</h2>
-        </div>
+                      <!-- German -->
+                      <div class="subject-card clickable-course" data-type="language" data-course="German" onclick="goToContact('language','German')">
+                        <div class="subject-header">
+                          <div>
+                            <h4>German</h4>
+                          </div>
+                        </div>
+                        <div class="subject-content">
+                          <h5>Available levels:</h5>
+                          <div class="levels-scroll">
+                            <div class="level-badge">
+                              <div class="level-name">A1</div>
+                              <div class="level-desc">Beginner</div>
+                            </div>
+                            <div class="level-badge">
+                              <div class="level-name">A2</div>
+                              <div class="level-desc">Elementary</div>
+                            </div>
+                            <div class="level-badge">
+                              <div class="level-name">B1</div>
+                              <div class="level-desc">Intermediate</div>
+                            </div>
+                            <div class="level-badge">
+                              <div class="level-name">B2</div>
+                              <div class="level-desc">Upper Intermediate</div>
+                            </div>
+                            <div class="level-badge">
+                              <div class="level-name">C1</div>
+                              <div class="level-desc">Advanced</div>
+                            </div>
+                            <div class="level-badge">
+                              <div class="level-name">C2</div>
+                              <div class="level-desc">Proficient</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-        <div class="form-container">
-          <form onsubmit="handleRegistrationForm(event)">
-            <div class="form-group">
-              <label for="regName">Full Name</label>
-              <input type="text" id="regName" name="regName" placeholder="Enter your full name" required>
-            </div>
+                      <!-- Japanese -->
+                      <div class="subject-card clickable-course" data-type="language" data-course="Japanese" onclick="goToContact('language','Japanese')">
+                        <div class="subject-header">
+                          <div>
+                            <h4>Japanese</h4>
+                          </div>
+                        </div>
+                        <div class="subject-content">
+                          <h5>Available levels:</h5>
+                          <div class="levels-scroll">
+                            <div class="level-badge">
+                              <div class="level-name">N5</div>
+                              <div class="level-desc">Beginner</div>
+                            </div>
+                            <div class="level-badge">
+                              <div class="level-name">N4</div>
+                              <div class="level-desc">Elementary</div>
+                            </div>
+                            <div class="level-badge">
+                              <div class="level-name">N3</div>
+                              <div class="level-desc">Intermediate</div>
+                            </div>
+                            <div class="level-badge">
+                              <div class="level-name">N2</div>
+                              <div class="level-desc">Advanced</div>
+                            </div>
+                            <div class="level-badge">
+                              <div class="level-name">N1</div>
+                              <div class="level-desc">Proficient</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-            <div class="form-group">
-              <label for="regEmail">Email Address</label>
-              <input type="email" id="regEmail" name="regEmail" placeholder="Enter your email" required>
-            </div>
+                          <!-- Hindi -->
+                          <div class="subject-card clickable-course" data-type="language" data-course="Hindi" onclick="goToContact('language','Hindi')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>Hindi</h4>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available levels:</h5>
+                                  <div class="levels-scroll">
+                                      <div class="level-badge">
+                                          <div class="level-name">Basic</div>
+                                          <div class="level-desc">Beginner</div>
+                                      </div>
+                                      <div class="level-badge">
+                                          <div class="level-name">Intermediate</div>
+                                          <div class="level-desc">Conversational</div>
+                                      </div>
+                                      <div class="level-badge">
+                                          <div class="level-name">Advanced</div>
+                                          <div class="level-desc">Fluent</div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
 
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-            </div>
-          <div class="form-group">
-  <label for="courseType">Select type of Course</label>
-  <select id="courseType" name="courseType" required class="custom-select">
-    <option value="" disabled selected>Select your course type</option>
-    <option value="academic">Academic</option>
-    <option value="language">Language</option>
-    <option value="programming">Programming</option>
-    <option value="other">Other</option>
-  </select>
-</div>
+                          <!-- French -->
+                          <div class="subject-card clickable-course" data-type="language" data-course="French" onclick="goToContact('language','French')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>French</h4>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available levels:</h5>
+                                  <div class="levels-scroll">
+                                      <div class="level-badge">
+                                          <div class="level-name">A1</div>
+                                          <div class="level-desc">Beginner</div>
+                                      </div>
+                                      <div class="level-badge">
+                                          <div class="level-name">A2</div>
+                                          <div class="level-desc">Elementary</div>
+                                      </div>
+                                      <div class="level-badge">
+                                          <div class="level-name">B1</div>
+                                          <div class="level-desc">Intermediate</div>
+                                      </div>
+                                      <div class="level-badge">
+                                          <div class="level-name">B2</div>
+                                          <div class="level-desc">Upper Intermediate</div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
 
-<div class="form-group">
-  <label for="country">Country</label>
-  <select id="country" name="country" required class="custom-select">
-    <option value="" disabled selected>Select your country</option>
-    <option value="india">India</option>
-    <option value="usa">USA</option>
-    <option value="uk">UK</option>
-    <option value="canada">Canada</option>
-    <option value="australia">Australia</option>
-    <option value="other">Other</option>
-  </select>
-</div>
+                  <!-- Programming Courses -->
+                  <div id="programming" class="course-category">
+                      <h3>Programming Courses</h3>
+                      <div class="subjects-grid">
+                          <!-- Python -->
+                          <div class="subject-card clickable-course" data-type="programming" data-course="Python Programming" onclick="goToContact('programming','Python Programming')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>Python Programming</h4>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available levels:</h5>
+                                  <div class="levels-scroll">
+                                      <div class="level-badge">
+                                          <div class="level-name">Beginner</div>
+                                          <div class="level-desc">Basics</div>
+                                      </div>
+                                      <div class="level-badge">
+                                          <div class="level-name">Intermediate</div>
+                                          <div class="level-desc">OOP, Algorithms</div>
+                                      </div>
+                                      <div class="level-badge">
+                                          <div class="level-name">Advanced</div>
+                                          <div class="level-desc">Data Science</div>
+                                      </div>
+                                      <div class="level-badge">
+                                          <div class="level-name">Expert</div>
+                                          <div class="level-desc">Web Development</div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
 
-<div class="form-group">
-  <label for="board">Select Board</label>
-  <select id="board" name="board" required class="custom-select">
-    <option value="" disabled selected>Select your board</option>
-    <option value="cbse">CBSE</option>
-    <option value="icse">ICSE</option>
-    <option value="state">State Board</option>
-    <option value="ib">IB</option>
-    <option value="igcse">IGCSE</option>
-    <option value="other">Other</option>
-  </select>
-</div>
+                                      <!-- C++ -->
+                                      <div class="subject-card clickable-course" data-type="programming" data-course="C++ Programming" onclick="goToContact('programming','C++ Programming')">
+                                        <div class="subject-header">
+                                          <div>
+                                            <h4>C++ Programming</h4>
+                                          </div>
+                                        </div>
+                                        <div class="subject-content">
+                                          <h5>Available levels:</h5>
+                                          <div class="levels-scroll">
+                                            <div class="level-badge">
+                                              <div class="level-name">Beginner</div>
+                                              <div class="level-desc">Basics</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Intermediate</div>
+                                              <div class="level-desc">OOP</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Advanced</div>
+                                              <div class="level-desc">Data Structures</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
 
-<div class="form-group">
-  <label for="demoClass">Demo Class</label>
-  <select id="demoClass" name="demoClass" required class="custom-select">
-    <option value="" disabled selected>Select a demo class</option>
-    <option value="yes">Yes, I want a demo class</option>
-    <option value="no">No, I don't need a demo class</option>
-  </select>
-</div>
+                                      <!-- Full Stack Development -->
+                                      <div class="subject-card clickable-course" data-type="programming" data-course="Full Stack Development" onclick="goToContact('programming','Full Stack Development')">
+                                        <div class="subject-header">
+                                          <div>
+                                            <h4>Full Stack Development</h4>
+                                          </div>
+                                        </div>
+                                        <div class="subject-content">
+                                          <h5>Available levels:</h5>
+                                          <div class="levels-scroll">
+                                            <div class="level-badge">
+                                              <div class="level-name">Beginner</div>
+                                              <div class="level-desc">Frontend Basics</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Intermediate</div>
+                                              <div class="level-desc">Backend & APIs</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Advanced</div>
+                                              <div class="level-desc">Full Stack Projects</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Done</button>
-          </form>
+                                      <!-- Google Arcade -->
+                                      <div class="subject-card clickable-course" data-type="programming" data-course="Google Arcade" onclick="goToContact('programming','Google Arcade')">
+                                        <div class="subject-header">
+                                          <div>
+                                            <h4>Google Arcade</h4>
+                                          </div>
+                                        </div>
+                                        <div class="subject-content">
+                                          <h5>Available levels:</h5>
+                                          <div class="levels-scroll">
+                                            <div class="level-badge">
+                                              <div class="level-name">Beginner</div>
+                                              <div class="level-desc">Introduction</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Intermediate</div>
+                                              <div class="level-desc">Hands-on Labs</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Advanced</div>
+                                              <div class="level-desc">Project Arcade</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
 
-        </div>
-      </div>
-    </div>
-  </section>
+                                      <!-- C Programming Basics -->
+                                      <div class="subject-card clickable-course" data-type="programming" data-course="C Programming Basics" onclick="goToContact('programming','C Programming Basics')">
+                                        <div class="subject-header">
+                                          <div>
+                                            <h4>C Programming Basics</h4>
+                                          </div>
+                                        </div>
+                                        <div class="subject-content">
+                                          <h5>Available levels:</h5>
+                                          <div class="levels-scroll">
+                                            <div class="level-badge">
+                                              <div class="level-name">Beginner</div>
+                                              <div class="level-desc">Syntax & Basics</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Intermediate</div>
+                                              <div class="level-desc">Functions & Pointers</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <!-- Data Structures & Algorithms in C -->
+                                      <div class="subject-card clickable-course" data-type="programming" data-course="Data Structures & Algorithms (C)" onclick="goToContact('programming','Data Structures & Algorithms (C)')">
+                                        <div class="subject-header">
+                                          <div>
+                                            <h4>Data Structures & Algorithms (C)</h4>
+                                          </div>
+                                        </div>
+                                        <div class="subject-content">
+                                          <h5>Available levels:</h5>
+                                          <div class="levels-scroll">
+                                            <div class="level-badge">
+                                              <div class="level-name">Intermediate</div>
+                                              <div class="level-desc">Arrays, Linked Lists</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Advanced</div>
+                                              <div class="level-desc">Trees, Graphs, Algorithms</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <!-- DBMS -->
+                                      <div class="subject-card clickable-course" data-type="programming" data-course="DBMS" onclick="goToContact('programming','DBMS')">
+                                        <div class="subject-header">
+                                          <div>
+                                            <h4>DBMS</h4>
+                                          </div>
+                                        </div>
+                                        <div class="subject-content">
+                                          <h5>Available levels:</h5>
+                                          <div class="levels-scroll">
+                                            <div class="level-badge">
+                                              <div class="level-name">Beginner</div>
+                                              <div class="level-desc">Database Basics</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Intermediate</div>
+                                              <div class="level-desc">SQL & Queries</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Advanced</div>
+                                              <div class="level-desc">Normalization, Transactions</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <!-- PHP -->
+                                      <div class="subject-card clickable-course" data-type="programming" data-course="PHP" onclick="goToContact('programming','PHP')">
+                                        <div class="subject-header">
+                                          <div>
+                                            <h4>PHP</h4>
+                                          </div>
+                                        </div>
+                                        <div class="subject-content">
+                                          <h5>Available levels:</h5>
+                                          <div class="levels-scroll">
+                                            <div class="level-badge">
+                                              <div class="level-name">Beginner</div>
+                                              <div class="level-desc">Syntax & Basics</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Intermediate</div>
+                                              <div class="level-desc">Forms & Sessions</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Advanced</div>
+                                              <div class="level-desc">Database Integration</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <!-- HTML & JavaScript -->
+                                      <div class="subject-card clickable-course" data-type="programming" data-course="HTML & JavaScript" onclick="goToContact('programming','HTML & JavaScript')">
+                                        <div class="subject-header">
+                                          <div>
+                                            <h4>HTML & JavaScript</h4>
+                                          </div>
+                                        </div>
+                                        <div class="subject-content">
+                                          <h5>Available levels:</h5>
+                                          <div class="levels-scroll">
+                                            <div class="level-badge">
+                                              <div class="level-name">Beginner</div>
+                                              <div class="level-desc">HTML Basics</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Intermediate</div>
+                                              <div class="level-desc">JS Fundamentals</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Advanced</div>
+                                              <div class="level-desc">DOM & Events</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <!-- Computer Graphics -->
+                                      <div class="subject-card clickable-course" data-type="programming" data-course="Computer Graphics" onclick="goToContact('programming','Computer Graphics')">
+                                        <div class="subject-header">
+                                          <div>
+                                            <h4>Computer Graphics</h4>
+                                          </div>
+                                        </div>
+                                        <div class="subject-content">
+                                          <h5>Available levels:</h5>
+                                          <div class="levels-scroll">
+                                            <div class="level-badge">
+                                              <div class="level-name">Beginner</div>
+                                              <div class="level-desc">Basics & Drawing</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Intermediate</div>
+                                              <div class="level-desc">2D/3D Concepts</div>
+                                            </div>
+                                            <div class="level-badge">
+                                              <div class="level-name">Advanced</div>
+                                              <div class="level-desc">Rendering & Animation</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+
+                          <!-- JavaScript -->
+                          <div class="subject-card clickable-course" data-type="programming" data-course="Java Programming" onclick="goToContact('programming','Java Programming')">
+                              <div class="subject-header">
+                                  <div>
+                                      <h4>Java Programming</h4>
+                                  </div>
+                              </div>
+                              <div class="subject-content">
+                                  <h5>Available levels:</h5>
+                                  <div class="levels-scroll">
+                                      <div class="level-badge">
+                                          <div class="level-name">Beginner</div>
+                                          <div class="level-desc">Basics</div>
+                                      </div>
+                                      <div class="level-badge">
+                                          <div class="level-name">Intermediate</div>
+                                          <div class="level-desc">DOM, ES6</div>
+                                      </div>
+                                      <div class="level-badge">
+                                          <div class="level-name">Advanced</div>
+                                          <div class="level-desc">React, Node</div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
 
   <script>
+    function goToContact(type, course) {
+      // Show Contact section
+      showSection('Contact');
+      // Set course type
+      const courseType = document.getElementById('courseType');
+      courseType.value = type;
+      // Trigger change event to populate course dropdown
+      updateCourseDropdown();
+      // Set course if dropdown is visible
+      setTimeout(function() {
+        const courseDropdownContainer = document.getElementById('courseDropdownContainer');
+        if (courseDropdownContainer && courseDropdownContainer.style.display !== 'none') {
+          const courseSelect = document.getElementById('courseSelect');
+          if (courseSelect) {
+            courseSelect.value = course;
+          }
+        }
+      }, 100);
+      // Scroll to Contact section smoothly
+      document.getElementById('Contact').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+    <!-- Contact us Section -->
+      <section id="Contact" class="section">
+        <div class="form-section">
+          <div class="container">
+            <div class="section-header">
+              <h2>Contact Us Today</h2>
+            </div>
+
+            <div class="form-container">
+              <form action="https://submit-form.com/IkUFckCIk" onsubmit="handleRegistrationForm(event)">
+                <div class="form-group">
+                  <label for="regName">Full Name</label>
+                  <input type="text" id="regName" name="regName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="regEmail">Email Address</label>
+                  <input type="email" id="regEmail" name="regEmail" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+              <div class="form-group">
+      <label for="courseType">Select type of Course</label>
+      <select id="courseType" name="courseType" required class="custom-select elegant-select" onchange="updateCourseDropdown()">
+        <option value="" disabled selected>Select your course type</option>
+        <option value="academic">Academic</option>
+        <option value="language">Language</option>
+        <option value="programming">Programming</option>
+        <option value="other">Other</option>
+      </select>
+      </div>
+
+      <div class="form-group" id="courseDropdownContainer" style="display: none;">
+        <label for="courseSelect">Select Course</label>
+        <select id="courseSelect" name="courseSelect" required class="custom-select elegant-select">
+          <!-- Options will be populated dynamically -->
+        </select>
+      </div>
+
+      <script>
+        // Course options for each type
+        const courseOptions = {
+          academic: [
+            "Mathematics",
+            "Science",
+            "Chemistry",
+            "Physics",
+            "Biology",
+            "Computer",
+            "English",
+            "Social Studies (Indian)"
+          ],
+          language: [
+            "English",
+            "Hindi",
+            "Punjabi",
+            "Sanskrit",
+            "German",
+            "Japanese",
+            "French"
+          ],
+          programming: [
+            "Python Programming",
+            "C++ Programming",
+            "Full Stack Development",
+            "Google Arcade",
+            "C Programming Basics",
+            "Data Structures & Algorithms (C)",
+            "DBMS",
+            "PHP",
+            "HTML & JavaScript",
+            "Computer Graphics",
+            "Java Programming"
+          ],
+          other: [
+            "Other"
+          ]
+        };
+
+        function updateCourseDropdown() {
+          const type = document.getElementById('courseType').value;
+          const container = document.getElementById('courseDropdownContainer');
+          const select = document.getElementById('courseSelect');
+
+          if (type && courseOptions[type]) {
+            // Show dropdown
+            container.style.display = 'block';
+            // Remove old options
+            select.innerHTML = '';
+            // Add placeholder
+            const placeholder = document.createElement('option');
+            placeholder.value = '';
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            placeholder.textContent = 'Select your course';
+            select.appendChild(placeholder);
+            // Add new options
+            courseOptions[type].forEach(course => {
+              const opt = document.createElement('option');
+              opt.value = course;
+              opt.textContent = course;
+              select.appendChild(opt);
+            });
+            select.required = true;
+          } else {
+            container.style.display = 'none';
+            select.required = false;
+          }
+        }
+      </script>
+
+
+    <div class="form-group">
+      <label for="country">Country</label>
+      <select id="country" name="country" required class="custom-select elegant-select">
+        <option value="" disabled selected>Select your country</option>
+        <option value="india">India</option>
+        <option value="usa">USA</option>
+        <option value="uk">UK</option>
+        <option value="canada">Canada</option>
+        <option value="australia">Australia</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="board">Select Board</label>
+      <select id="board" name="board" required class="custom-select elegant-select">
+        <option value="" disabled selected>Select your board</option>
+        <option value="cbse">CBSE</option>
+        <option value="icse">ICSE</option>
+        <option value="state">State Board</option>
+        <option value="ib">IB</option>
+        <option value="igcse">IGCSE</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="demoClass">Demo Class</label>
+      <select id="demoClass" name="demoClass" required class="custom-select elegant-select">
+        <option value="" disabled selected>Select a demo class</option>
+        <option value="yes">Yes, I want a demo class</option>
+        <option value="no">No, I don't need a demo class</option>
+      </select>
+    </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Done</button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+  <style>
+  /* Elegant and bigger select dropdowns */
+  .elegant-select {
+    width: 100%;
+    min-height: 52px;
+    font-size: 1.15rem;
+    padding: 0.75rem 1.2rem;
+    border-radius: 10px;
+    border: 1.5px solid #2563eb;
+    background: #f3f6fd;
+    color: #1f2937;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.06);
+    appearance: none;
+    outline: none;
+    margin-top: 0.25rem;
+  }
+
+  .elegant-select:focus {
+    border-color: #1d4ed8;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+    background: #e0e7ff;
+  }
+
+  .elegant-select option {
+    font-size: 1.05rem;
+    padding: 0.7rem;
+    background: #fff;
+    color: #1f2937;
+  }
+  </style>
+
+  <script>
+      // Ensure mobile nav is collapsed by default
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById('mobileNav').style.display = 'none';
+    });
+
     // Navigation functionality
     function showSection(sectionName) {
       // Hide all sections
@@ -1256,7 +1157,7 @@ label {
         return;
       }
 
-      alert('Welcome to APlus Learning! Your account has been created successfully.');
+      alert('Form Submitted.');
       console.log('Registration form data:', data);
 
       // Reset form
