@@ -952,17 +952,24 @@
             <input type="text" id="regName" name="regName" placeholder="Enter your full name" required>
           </div>
 
-          <!-- Email -->
-          <div class="form-group">
-            <label for="regEmail">Email Address</label>
-            <input type="email" id="regEmail" name="regEmail" placeholder="Enter your email" required>
-          </div>
+      <!-- Email -->
+<div class="form-group">
+  <label for="regEmail">Email Address <span style="color:red">*</span></label>
+  <input type="email" id="regEmail" name="regEmail" placeholder="Enter your email" required>
+</div>
 
-          <!-- Phone Number -->
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-          </div>
+<!-- Phone Number with Typable Country Code -->
+<div class="form-group">
+  <label for="phone">Phone Number (Optional)</label>
+  <div style="display: flex; gap: 10px;">
+    <input type="text" id="countryCode" name="countryCode" placeholder="+91"
+           pattern="\+\d{1,4}" title="Enter a valid country code starting with +"
+           style="width: 80px;">
+    <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit phone number"
+           pattern="\d{10}" maxlength="10" title="Phone number should be 10 digits">
+  </div>
+</div>
+
 
           <!-- Course Type -->
           <div class="form-group">
