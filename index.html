@@ -1,1291 +1,917 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APlus Learning - Learn and Grow</title>
-  <meta name="description" content="Transform your career with expert courses" />
-  <link rel="stylesheet" href="./style.css" />
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry - A Heartfelt Apology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            animation: backgroundShift 10s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { 
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            }
+            25% { 
+                background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            }
+            50% { 
+                background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #fed6e3 100%);
+            }
+            75% { 
+                background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 50%, #42a5f5 100%);
+            }
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle.type-1 {
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .particle.type-2 {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 182, 193, 0.7);
+            box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+        }
+
+        .particle.type-3 {
+            width: 6px;
+            height: 6px;
+            background: rgba(173, 216, 230, 0.8);
+            box-shadow: 0 0 12px rgba(173, 216, 230, 0.7);
+        }
+
+        .particle.type-4 {
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 215, 0, 0.9);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1); 
+                opacity: 0.3; 
+            }
+            25% { 
+                transform: translateY(-15px) rotate(90deg) scale(1.2); 
+                opacity: 0.8; 
+            }
+            50% { 
+                transform: translateY(-30px) rotate(180deg) scale(0.8); 
+                opacity: 1; 
+            }
+            75% { 
+                transform: translateY(-15px) rotate(270deg) scale(1.1); 
+                opacity: 0.6; 
+            }
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Heart animation */
+        .heart-container {
+            position: relative;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.6));
+        }
+
+        .heart {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 15px rgba(255, 107, 107, 0.8));
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffb3b3);
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes heartbeat {
+            0% { 
+                transform: rotate(-45deg) scale(1);
+                filter: drop-shadow(0 0 15px rgba(255, 107, 107, 0.8));
+            }
+            50% { 
+                transform: rotate(-45deg) scale(1.2);
+                filter: drop-shadow(0 0 25px rgba(255, 107, 107, 1));
+            }
+            100% { 
+                transform: rotate(-45deg) scale(1);
+                filter: drop-shadow(0 0 15px rgba(255, 107, 107, 0.8));
+            }
+        }
+
+        /* Broken heart effect */
+        .broken-heart {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .crack {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #fff, #ff4757, #fff);
+            transform: translateX(-50%);
+            animation: crack 2s ease-in-out;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                        inset 0 0 5px rgba(255, 71, 87, 0.6);
+        }
+
+        @keyframes crack {
+            0% { 
+                height: 0%; 
+                opacity: 0; 
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            }
+            50% { 
+                height: 100%; 
+                opacity: 1; 
+                box-shadow: 0 0 15px rgba(255, 255, 255, 1), 
+                            inset 0 0 8px rgba(255, 71, 87, 0.8);
+            }
+            100% { 
+                height: 100%; 
+                opacity: 0.9; 
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                            inset 0 0 5px rgba(255, 71, 87, 0.6);
+            }
+        }
+
+        /* Main title */
+        .main-title {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 
+                         0 0 20px rgba(255, 255, 255, 0.5),
+                         0 0 40px rgba(255, 107, 107, 0.3);
+            animation: fadeInUp 1s ease-out, titleGlow 3s ease-in-out infinite;
+            font-weight: 300;
+            letter-spacing: 3px;
+            background: linear-gradient(45deg, #fff, #ff6b6b, #fff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { 
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 
+                             0 0 20px rgba(255, 255, 255, 0.5),
+                             0 0 40px rgba(255, 107, 107, 0.3);
+            }
+            50% { 
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 
+                             0 0 30px rgba(255, 255, 255, 0.8),
+                             0 0 60px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        /* Subtitle */
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Apology message */
+        .apology-message {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            width: 100%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s both, messageFloat 4s ease-in-out infinite;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1),
+                        0 5px 15px rgba(0, 0, 0, 0.08),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apology-message::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                        transparent 30%, 
+                        rgba(255, 255, 255, 0.1) 50%, 
+                        transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+
+        @keyframes messageFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .apology-text {
+            color: #fff;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: left;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .signature {
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            text-align: right;
+            margin-top: 20px;
+            font-size: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Forgive button */
+        .forgive-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ff6b6b);
+            background-size: 200% 200%;
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4),
+                        0 4px 15px rgba(255, 107, 107, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            animation: fadeInUp 1s ease-out 0.9s both, buttonPulse 2s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .forgive-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6),
+                        0 8px 25px rgba(255, 107, 107, 0.4);
+            background-position: 100% 0;
+        }
+
+        .forgive-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { 
+                box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4),
+                            0 4px 15px rgba(255, 107, 107, 0.2),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6),
+                            0 8px 25px rgba(255, 107, 107, 0.4),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        /* Ripple effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Success message */
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            z-index: 1000;
+            max-width: 90%;
+        }
+
+        .success-message.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .success-title {
+            font-size: 2rem;
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .success-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Falling hearts */
+        .falling-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .falling-heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff6b6b;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            .apology-message {
+                padding: 30px 20px;
+                margin: 0 10px 40px;
+            }
+
+            .apology-text {
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .heart {
+                width: 70px;
+                height: 70px;
+            }
+
+            .heart::before,
+            .heart::after {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .apology-message {
+                padding: 25px 15px;
+            }
+
+            .forgive-btn {
+                padding: 15px 35px;
+                font-size: 1rem;
+            }
+
+            .heart {
+                width: 60px;
+                height: 60px;
+            }
+
+            .heart::before,
+            .heart::after {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* Sparkle animation */
+        .sparkle {
+            position: absolute;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle.small {
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #fff, #ff6b6b);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .sparkle.medium {
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #fff, #ffd700);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+        }
+
+        .sparkle.large {
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #fff, #ff69b4);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+        }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                opacity: 0; 
+                transform: scale(0) rotate(0deg); 
+            }
+            25% { 
+                opacity: 0.8; 
+                transform: scale(1.2) rotate(90deg); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1) rotate(180deg); 
+            }
+            75% { 
+                opacity: 0.6; 
+                transform: scale(1.1) rotate(270deg); 
+            }
+        }
+
+        /* Aurora effect */
+        .aurora {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            background: linear-gradient(90deg, 
+                        transparent 0%, 
+                        rgba(255, 107, 107, 0.1) 25%, 
+                        rgba(255, 182, 193, 0.15) 50%, 
+                        rgba(173, 216, 230, 0.1) 75%, 
+                        transparent 100%);
+            animation: aurora 8s ease-in-out infinite;
+        }
+
+        @keyframes aurora {
+            0%, 100% { opacity: 0; transform: translateX(-100%); }
+            50% { opacity: 1; transform: translateX(100%); }
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="logo"><img class="imagelogo" src="logo.jpeg" width="100"></div>
-
-      <ul class="nav-links">
-        <li><button onclick="showSection('home')" class="nav-btn active">Home</button></li>
-        <li><button onclick="showSection('courses')" class="nav-btn">Courses</button></li>
-        <li><button onclick="showSection('Contact')" class="nav-btn">Contact Us</button></li>
-        <li><button onclick="showSection('about')" class="nav-btn">About Us</button></li>
-      </ul>
-
-      <button class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Open navigation menu">☰</button>
-    </div>
-
-    <div class="mobile-nav" id="mobileNav" style="display: none;">
-      <button onclick="showSection('home'); toggleMobileMenu()">Home</button>
-      <button onclick="showSection('courses'); toggleMobileMenu()">Courses</button>
-      <button onclick="showSection('Contact'); toggleMobileMenu()">Contact Us</button>
-      <button onclick="showSection('about'); toggleMobileMenu()">About Us</button>
-    </div>
-  </nav>
-  
-
-  <!-- Home Section -->
-  <section id="home" class="section active">
-    <div class="hero">
-      <div class="container">
-        <h1>Personalized Online Tutoring for Students – Powered by Indian Expertise</h1>
-        <p>Master Academics, Learn AI, and Speak the World – All from the comfort of home..</p>
-        <div class="cta-buttons">
-          <button class="btn btn-primary" onclick="showSection('courses')">Browse Courses</button>
-          <button class="btn btn-secondary" onclick="showSection('Contact')">Get Started</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="features">
-      <div class="container">
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">👨‍🏫</div>
-            <h3>Expert Instructors</h3>
-            <p>We cover Academic Syllabus of State Boards of India, CBSE Board, ICSE Board, AQA, MYP, A Level IGCSE, AP.
-            </p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">💬</div>
-            <h3>Free Demo Classes</h3>
-            <p>We provide a 30 minute free demo class for each subject.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="how-it-works" style="background: #f8fafc; padding: 2rem 0;">
-      <div class="container">
-        <h2 style="text-align: center; color: #2563eb; margin-bottom: 2rem;">How It Works</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
-          <div style="flex: 1 1 220px; max-width: 300px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.5rem; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📝</div>
-            <h4 style="color: #1f2937; margin-bottom: 0.5rem;">1. Register Online</h4>
-            <p style="color: #374151;">Sign up and fill out a simple registration form to get started.</p>
-          </div>
-          <div style="flex: 1 1 220px; max-width: 300px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.5rem; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎓</div>
-            <h4 style="color: #1f2937; margin-bottom: 0.5rem;">2. Attend Free Demo</h4>
-            <p style="color: #374151;">Book a free 30-minute demo class in your chosen subject.</p>
-          </div>
-          <div style="flex: 1 1 220px; max-width: 300px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.5rem; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📚</div>
-            <h4 style="color: #1f2937; margin-bottom: 0.5rem;">3. Choose Your Course</h4>
-            <p style="color: #374151;">Select from a wide range of academic, language, and programming courses.</p>
-          </div>
-          <div style="flex: 1 1 220px; max-width: 300px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.5rem; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">💡</div>
-            <h4 style="color: #1f2937; margin-bottom: 0.5rem;">4. Start Learning</h4>
-            <p style="color: #374151;">Begin your personalized online learning journey with expert tutors.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="platform-used" style="background: #eef2ff; padding: 2rem 0;">
-      <div class="container">
-        <h2 style="text-align: center; color: #2563eb; margin-bottom: 1.5rem;">Platforms We Use</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
-          <div style="flex: 1 1 180px; max-width: 220px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
-            <img src="./logo/zoom.png" alt="Zoom" style="height: 40px; margin-bottom: 1rem;">
-            <div style="font-weight: bold; color: #1f2937;">Zoom</div>
-            <div style="font-size: 0.9rem; color: #6b7280;">Live interactive classes</div>
-          </div>
-          <div style="flex: 1 1 180px; max-width: 220px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
-            <img src="./logo/meet.png" alt="Google Classroom" style="height: 40px; margin-bottom: 1rem;">
-            <div style="font-weight: bold; color: #1f2937;">Google Meet</div>
-            <div style="font-size: 0.9rem; color: #6b7280;">Assignments & resources</div>
-          </div>
-          <div style="flex: 1 1 180px; max-width: 220px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
-            <img src="./logo/wa.png" alt="WhatsApp" style="height: 40px; margin-bottom: 1rem;">
-            <div style="font-weight: bold; color: #1f2937;">WhatsApp</div>
-            <div style="font-size: 0.9rem; color: #6b7280;">Quick communication</div>
-          </div>
-          <div style="flex: 1 1 180px; max-width: 220px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
-            <img src="./logo/team.png" title="microsoft icons"" alt="Microsoft Teams" style="height: 40px; margin-bottom: 1rem;">
-            <div style="font-weight: bold; color: #1f2937;">Microsoft Teams</div>
-            <div style="font-size: 0.9rem; color: #6b7280;">Collaboration & meetings</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tools-used" style="background: #fff; padding: 2rem 0;">
-      <div class="container">
-      <h2 style="text-align: center; color: #2563eb; margin-bottom: 1.5rem;">Tools We Use</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
-        <div style="flex: 1 1 180px; max-width: 220px; background: #f8fafc; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📝</div>
-        <div style="font-weight: bold; color: #1f2937;">Whiteboard</div>
-        <div style="font-size: 0.9rem; color: #6b7280;">Interactive teaching & problem solving</div>
-        </div>
-        <div style="flex: 1 1 180px; max-width: 220px; background: #f8fafc; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">❓</div>
-        <div style="font-weight: bold; color: #1f2937;">Quizzes</div>
-        <div style="font-size: 0.9rem; color: #6b7280;">Regular assessments & practice</div>
-        </div>
-        <div style="flex: 1 1 180px; max-width: 220px; background: #f8fafc; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
-        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📊</div>
-        <div style="font-weight: bold; color: #1f2937;">PPT Presentations</div>
-        <div style="font-size: 0.9rem; color: #6b7280;">Visual learning with slides</div>
-        </div>
-        <div style="flex: 1 1 180px; max-width: 220px; background: #f8fafc; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 1.2rem; text-align: center;">
-        <img src="./logo/gc.png" alt="Google Classroom" style="height: 40px; margin-bottom: 1rem;">
-        <div style="font-weight: bold; color: #1f2937;">Google Classroom</div>
-        <div style="font-size: 0.9rem; color: #6b7280;">Assignments & resources</div>
-        </div>
-      </div>
-      </div>
-    </div>
-
-  </section>
-
-  
-  <!-- About Us Section -->
-  <section id="about" class="section">
-    <div class="form-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>About APlus Learning Institute</h2>
-          <p>Empowering learners worldwide with quality education</p>
-        </div>
-        <div style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <div style="margin-bottom: 2rem;">
-            <h3 style="color: #2563eb; margin-bottom: 1rem; font-size: 1.5rem;">Our Vision</h3>
-            <p style="line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
-              To become the most trusted and accessible online learning platform for students worldwide by delivering high-quality, personalized education from India, bridging borders with knowledge and technology.
-            </p>
-          </div>
-          <div style="margin-bottom: 2rem;">
-            <h3 style="color: #2563eb; margin-bottom: 1rem; font-size: 1.5rem;">Our Story</h3>
-            <p style="line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
-              Founded in 2023 and established in 2024, APlus Learning Institute has been at the forefront of online education,
-              providing high-quality courses to students worldwide. Our mission is to make quality
-              education accessible to everyone, regardless of their location or background.
-            </p>
-          </div>
-          <div style="margin-bottom: 2rem;">
-            <h3 style="color: #2563eb; margin-bottom: 1rem; font-size: 1.5rem;">Our Mission</h3>
-            <p style="line-height: 1.8; color: #374151; margin-bottom: 1.5rem;">
-              Our mission is to deliver a well-rounded and accessible online learning experience for school students, college learners, and professionals in Dubai by:
-              <br>
-              Providing expert-led tutoring in core academic subjects (Math, Science, English, Social Studies) aligned with CBSE, ICSE, British, IB, and American curricula.
-              <br>
-              Offering specialized, hands-on courses in Computer Science, Artificial Intelligence, Python, coding, and project-based tech learning.
-              <br>
-              Promoting cultural identity by teaching Indian languages like Hindi, Punjabi, and Sanskrit to students of Indian origin.
-              <br>
-              Enabling global communication skills through foreign language programs in German, Spanish, and Japanese, taught by certified language instructors.
-              <br>
-              Utilizing digital tools, live interactive sessions, personalized mentorship, and performance tracking to create a seamless and engaging online learning journey.
-              <br>
-              Operating from India, leveraging the country's educational talent to deliver cost-effective, high-quality tutoring
-            </p>
-          </div>
-          <div style="margin-bottom: 2rem;">
-            <h3 style="color: #2563eb; margin-bottom: 1rem; font-size: 1.5rem;">Why Choose Us?</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-              <div style="padding: 1rem; background: #f8fafc; border-radius: 8px;">
-                <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Personalized Learning</h4>
-              </div>
-              <div style="padding: 1rem; background: #f8fafc; border-radius: 8px;">
-                <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Flexible Learning</h4>
-              </div>
-              <div style="padding: 1rem; background: #f8fafc; border-radius: 8px;">
-                <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Promoting Culture</h4>
-              </div>
-              <div style="padding: 1rem; background: #f8fafc; border-radius: 8px;">
-                <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Expert Tutor</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <section id="courses" class="section">
-        <div class="courses">
-          <div class="container">
-            <div class="section-header">
-              <h2>Our Courses</h2>
-              <p>Choose from our comprehensive selection of courses</p>
-            </div>
-
-            <!-- Course Categories Navigation -->
-            <div class="course-categories">
-              <button class="btn btn-secondary active" onclick="showCourseCategory('academics')" id="academicsBtn">Academics</button>
-              <button class="btn btn-secondary" onclick="showCourseCategory('languages')" id="languagesBtn">Languages</button>
-              <button class="btn btn-secondary" onclick="showCourseCategory('computer')" id="computerBtn">Computer & AI</button>
-            </div>
-
-            <!-- Academics Courses -->
-            <div id="academics" class="course-category active">
-              <h3>Academic Subjects</h3>
-              <div class="subjects-grid">
-                <!-- Mathematics -->
-                <div class="subject-card clickable-course" data-type="academic" data-course="Mathematics" onclick="goToContact('academic','Mathematics')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Mathematics</h4>
-                      <p>Concepts from basic to advanced level</p>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available for standards:</h5>
-                    <div class="standards-scroll">
-                      <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basic Concepts</span></span>
-                      <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Intermediate</span></span>
-                      <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
-                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Science -->
-                <div class="subject-card clickable-course" data-type="academic" data-course="Science" onclick="goToContact('academic','Science')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Science</h4>
-                      <p>Covers Physics, Chemistry & Biology</p>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available for standards:</h5>
-                    <div class="standards-scroll">
-                      <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">General Science</span></span>
-                      <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">PCB Basics</span></span>
-                      <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Chemistry -->
-                <div class="subject-card clickable-course" data-type="academic" data-course="Chemistry" onclick="goToContact('academic','Chemistry')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Chemistry</h4>
-                      <p>Inorganic, Organic & Physical</p>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available for standards:</h5>
-                    <div class="standards-scroll">
-                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Chemistry</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Physics -->
-                <div class="subject-card clickable-course" data-type="academic" data-course="Physics" onclick="goToContact('academic','Physics')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Physics</h4>
-                      <p>Mechanics, Thermodynamics, EM, etc.</p>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available for standards:</h5>
-                    <div class="standards-scroll">
-                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Physics</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Biology -->
-                <div class="subject-card clickable-course" data-type="academic" data-course="Biology" onclick="goToContact('academic','Biology')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Biology</h4>
-                      <p>Zoology, Botany, and Human Biology</p>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available for standards:</h5>
-                    <div class="standards-scroll">
-                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced Biology</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Computer -->
-                <div class="subject-card clickable-course" data-type="academic" data-course="Computer" onclick="goToContact('academic','Computer')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Computer</h4>
-                      <p>Covers basics to CS fundamentals</p>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available for standards:</h5>
-                    <div class="standards-scroll">
-                      <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basics</span></span>
-                      <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Fundamentals</span></span>
-                      <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">IT/CS</span></span>
-                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Computer Science</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- English -->
-                <div class="subject-card clickable-course" data-type="academic" data-course="English" onclick="goToContact('academic','English')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>English</h4>
-                      <p>Grammar, Reading & Literature</p>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available for standards:</h5>
-                    <div class="standards-scroll">
-                      <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">Basic English</span></span>
-                      <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">Grammar & Literature</span></span>
-                      <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
-                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Advanced English</span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Social Studies -->
-                <div class="subject-card clickable-course" data-type="academic" data-course="Social Studies (Indian)" onclick="goToContact('academic','Social Studies (Indian)')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Social Studies (Indian)</h4>
-                      <p>History, Civics, Geography & more</p>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available for standards:</h5>
-                    <div class="standards-scroll">
-                      <span>1st–5th<br><span style="font-size:0.8rem; color:#6b7280;">General Studies</span></span>
-                      <span>6th–8th<br><span style="font-size:0.8rem; color:#6b7280;">History, Civics, Geography</span></span>
-                      <span>9th–10th<br><span style="font-size:0.8rem; color:#6b7280;">Board Level</span></span>
-                      <span>11th–12th<br><span style="font-size:0.8rem; color:#6b7280;">Humanities</span></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Language Courses -->
-            <div id="languages" class="course-category">
-            <h3>Language Courses</h3>
-            <div class="subjects-grid">
-              <!-- English -->
-              <div class="subject-card clickable-course" data-type="language" data-course="English" onclick="goToContact('language','English')">
-              <div class="subject-header">
-                <div>
-                <h4>English</h4>
-                </div>
-              </div>
-              <div class="subject-content">
-                <h5>Available levels:</h5>
-                <div class="levels-scroll">
-                <div class="level-badge">
-                  <div class="level-name">Basic</div>
-                  <div class="level-desc">A1-A2</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">Intermediate</div>
-                  <div class="level-desc">B1-B2</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">Advanced</div>
-                  <div class="level-desc">C1-C2</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">Business</div>
-                  <div class="level-desc">Professional</div>
-                </div>
-                </div>
-              </div>
-              </div>
-
-              <!-- Punjabi -->
-              <div class="subject-card clickable-course" data-type="language" data-course="Punjabi" onclick="goToContact('language','Punjabi')">
-              <div class="subject-header">
-                <div>
-                <h4>Punjabi</h4>
-                </div>
-              </div>
-              <div class="subject-content">
-                <h5>Available levels:</h5>
-                <div class="levels-scroll">
-                <div class="level-badge">
-                  <div class="level-name">Basic</div>
-                  <div class="level-desc">Beginner</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">Intermediate</div>
-                  <div class="level-desc">Conversational</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">Advanced</div>
-                  <div class="level-desc">Fluent</div>
-                </div>
-                </div>
-              </div>
-              </div>
-
-              <!-- Sanskrit -->
-              <div class="subject-card clickable-course" data-type="language" data-course="Sanskrit" onclick="goToContact('language','Sanskrit')">
-              <div class="subject-header">
-                <div>
-                <h4>Sanskrit</h4>
-                </div>
-              </div>
-              <div class="subject-content">
-                <h5>Available levels:</h5>
-                <div class="levels-scroll">
-                <div class="level-badge">
-                  <div class="level-name">Basic</div>
-                  <div class="level-desc">Beginner</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">Intermediate</div>
-                  <div class="level-desc">Conversational</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">Advanced</div>
-                  <div class="level-desc">Fluent</div>
-                </div>
-                </div>
-              </div>
-              </div>
-
-              <!-- German -->
-              <div class="subject-card clickable-course" data-type="language" data-course="German" onclick="goToContact('language','German')">
-              <div class="subject-header">
-                <div>
-                <h4>German</h4>
-                </div>
-              </div>
-              <div class="subject-content">
-                <h5>Available levels:</h5>
-                <div class="levels-scroll">
-                <div class="level-badge">
-                  <div class="level-name">A1</div>
-                  <div class="level-desc">Beginner</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">A2</div>
-                  <div class="level-desc">Elementary</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">B1</div>
-                  <div class="level-desc">Intermediate</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">B2</div>
-                  <div class="level-desc">Upper Intermediate</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">C1</div>
-                  <div class="level-desc">Advanced</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">C2</div>
-                  <div class="level-desc">Proficient</div>
-                </div>
-                </div>
-              </div>
-              </div>
-
-              <!-- Japanese -->
-              <div class="subject-card clickable-course" data-type="language" data-course="Japanese" onclick="goToContact('language','Japanese')">
-              <div class="subject-header">
-                <div>
-                <h4>Japanese</h4>
-                </div>
-              </div>
-              <div class="subject-content">
-                <h5>Available levels:</h5>
-                <div class="levels-scroll">
-                <div class="level-badge">
-                  <div class="level-name">N5</div>
-                  <div class="level-desc">Beginner</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">N4</div>
-                  <div class="level-desc">Elementary</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">N3</div>
-                  <div class="level-desc">Intermediate</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">N2</div>
-                  <div class="level-desc">Advanced</div>
-                </div>
-                <div class="level-badge">
-                  <div class="level-name">N1</div>
-                  <div class="level-desc">Proficient</div>
-                </div>
-                </div>
-              </div>
-              </div>
-
-                <!-- Hindi -->
-                <div class="subject-card clickable-course" data-type="language" data-course="Hindi" onclick="goToContact('language','Hindi')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Hindi</h4>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available levels:</h5>
-                    <div class="levels-scroll">
-                      <div class="level-badge">
-                        <div class="level-name">Basic</div>
-                        <div class="level-desc">Beginner</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">Intermediate</div>
-                        <div class="level-desc">Conversational</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">Advanced</div>
-                        <div class="level-desc">Fluent</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- French -->
-                <div class="subject-card clickable-course" data-type="language" data-course="French" onclick="goToContact('language','French')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>French</h4>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available levels:</h5>
-                    <div class="levels-scroll">
-                      <div class="level-badge">
-                        <div class="level-name">A1</div>
-                        <div class="level-desc">Beginner</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">A2</div>
-                        <div class="level-desc">Elementary</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">B1</div>
-                        <div class="level-desc">Intermediate</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">B2</div>
-                        <div class="level-desc">Upper Intermediate</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Computer & AI Courses -->
-            <div id="computer" class="course-category">
-              <h3>Computer & AI Courses</h3>
-              <div class="subjects-grid">
-                <!-- Python -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="Python Programming" onclick="goToContact('computer','Python Programming')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Python Programming</h4>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available levels:</h5>
-                    <div class="levels-scroll">
-                      <div class="level-badge">
-                        <div class="level-name">Beginner</div>
-                        <div class="level-desc">Basics</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">Intermediate</div>
-                        <div class="level-desc">OOP, Algorithms</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">Advanced</div>
-                        <div class="level-desc">Data Science</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">Expert</div>
-                        <div class="level-desc">Web Development</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Artificial Intelligence -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="Artificial Intelligence" onclick="goToContact('computer','Artificial Intelligence')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Artificial Intelligence</h4>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available levels:</h5>
-                    <div class="levels-scroll">
-                      <div class="level-badge">
-                        <div class="level-name">Beginner</div>
-                        <div class="level-desc">AI Basics</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">Intermediate</div>
-                        <div class="level-desc">Machine Learning</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">Advanced</div>
-                        <div class="level-desc">Deep Learning</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- C++ -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="C++ Programming" onclick="goToContact('computer','C++ Programming')">
-                <div class="subject-header">
-                  <div>
-                  <h4>C++ Programming</h4>
-                  </div>
-                </div>
-                <div class="subject-content">
-                  <h5>Available levels:</h5>
-                  <div class="levels-scroll">
-                  <div class="level-badge">
-                    <div class="level-name">Beginner</div>
-                    <div class="level-desc">Basics</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Intermediate</div>
-                    <div class="level-desc">OOP</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Advanced</div>
-                    <div class="level-desc">Data Structures</div>
-                  </div>
-                  </div>
-                </div>
-                </div>
-
-                <!-- Full Stack Development -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="Full Stack Development" onclick="goToContact('computer','Full Stack Development')">
-                <div class="subject-header">
-                  <div>
-                  <h4>Full Stack Development</h4>
-                  </div>
-                </div>
-                <div class="subject-content">
-                  <h5>Available levels:</h5>
-                  <div class="levels-scroll">
-                  <div class="level-badge">
-                    <div class="level-name">Beginner</div>
-                    <div class="level-desc">Frontend Basics</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Intermediate</div>
-                    <div class="level-desc">Backend & APIs</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Advanced</div>
-                    <div class="level-desc">Full Stack Projects</div>
-                  </div>
-                  </div>
-                </div>
-                </div>
-
-                <!-- Google Arcade -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="Google Arcade" onclick="goToContact('computer','Google Arcade')">
-                <div class="subject-header">
-                  <div>
-                  <h4>Google Arcade</h4>
-                  </div>
-                </div>
-                <div class="subject-content">
-                  <h5>Available levels:</h5>
-                  <div class="levels-scroll">
-                  <div class="level-badge">
-                    <div class="level-name">Beginner</div>
-                    <div class="level-desc">Introduction</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Intermediate</div>
-                    <div class="level-desc">Hands-on Labs</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Advanced</div>
-                    <div class="level-desc">Project Arcade</div>
-                  </div>
-                  </div>
-                </div>
-                </div>
-
-                <!-- C Programming Basics -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="C Programming Basics" onclick="goToContact('computer','C Programming Basics')">
-                <div class="subject-header">
-                  <div>
-                  <h4>C Programming Basics</h4>
-                  </div>
-                </div>
-                <div class="subject-content">
-                  <h5>Available levels:</h5>
-                  <div class="levels-scroll">
-                  <div class="level-badge">
-                    <div class="level-name">Beginner</div>
-                    <div class="level-desc">Syntax & Basics</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Intermediate</div>
-                    <div class="level-desc">Functions & Pointers</div>
-                  </div>
-                  </div>
-                </div>
-                </div>
-
-                <!-- Data Structures & Algorithms in C -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="Data Structures & Algorithms (C)" onclick="goToContact('computer','Data Structures & Algorithms (C)')">
-                <div class="subject-header">
-                  <div>
-                  <h4>Data Structures & Algorithms (C)</h4>
-                  </div>
-                </div>
-                <div class="subject-content">
-                  <h5>Available levels:</h5>
-                  <div class="levels-scroll">
-                  <div class="level-badge">
-                    <div class="level-name">Intermediate</div>
-                    <div class="level-desc">Arrays, Linked Lists</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Advanced</div>
-                    <div class="level-desc">Trees, Graphs, Algorithms</div>
-                  </div>
-                  </div>
-                </div>
-                </div>
-
-                <!-- DBMS -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="DBMS" onclick="goToContact('computer','DBMS')">
-                <div class="subject-header">
-                  <div>
-                  <h4>DBMS</h4>
-                  </div>
-                </div>
-                <div class="subject-content">
-                  <h5>Available levels:</h5>
-                  <div class="levels-scroll">
-                  <div class="level-badge">
-                    <div class="level-name">Beginner</div>
-                    <div class="level-desc">Database Basics</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Intermediate</div>
-                    <div class="level-desc">SQL & Queries</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Advanced</div>
-                    <div class="level-desc">Normalization, Transactions</div>
-                  </div>
-                  </div>
-                </div>
-                </div>
-
-                <!-- PHP -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="PHP" onclick="goToContact('computer','PHP')">
-                <div class="subject-header">
-                  <div>
-                  <h4>PHP</h4>
-                  </div>
-                </div>
-                <div class="subject-content">
-                  <h5>Available levels:</h5>
-                  <div class="levels-scroll">
-                  <div class="level-badge">
-                    <div class="level-name">Beginner</div>
-                    <div class="level-desc">Syntax & Basics</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Intermediate</div>
-                    <div class="level-desc">Forms & Sessions</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Advanced</div>
-                    <div class="level-desc">Database Integration</div>
-                  </div>
-                  </div>
-                </div>
-                </div>
-
-                <!-- HTML & JavaScript -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="HTML & JavaScript" onclick="goToContact('computer','HTML & JavaScript')">
-                <div class="subject-header">
-                  <div>
-                  <h4>HTML & JavaScript</h4>
-                  </div>
-                </div>
-                <div class="subject-content">
-                  <h5>Available levels:</h5>
-                  <div class="levels-scroll">
-                  <div class="level-badge">
-                    <div class="level-name">Beginner</div>
-                    <div class="level-desc">HTML Basics</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Intermediate</div>
-                    <div class="level-desc">JS Fundamentals</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Advanced</div>
-                    <div class="level-desc">DOM & Events</div>
-                  </div>
-                  </div>
-                </div>
-                </div>
-
-                <!-- Computer Graphics -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="Computer Graphics" onclick="goToContact('computer','Computer Graphics')">
-                <div class="subject-header">
-                  <div>
-                  <h4>Computer Graphics</h4>
-                  </div>
-                </div>
-                <div class="subject-content">
-                  <h5>Available levels:</h5>
-                  <div class="levels-scroll">
-                  <div class="level-badge">
-                    <div class="level-name">Beginner</div>
-                    <div class="level-desc">Basics & Drawing</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Intermediate</div>
-                    <div class="level-desc">2D/3D Concepts</div>
-                  </div>
-                  <div class="level-badge">
-                    <div class="level-name">Advanced</div>
-                    <div class="level-desc">Rendering & Animation</div>
-                  </div>
-                  </div>
-                </div>
-                </div>
-
-                <!-- Java Programming -->
-                <div class="subject-card clickable-course" data-type="computer" data-course="Java Programming" onclick="goToContact('computer','Java Programming')">
-                  <div class="subject-header">
-                    <div>
-                      <h4>Java Programming</h4>
-                    </div>
-                  </div>
-                  <div class="subject-content">
-                    <h5>Available levels:</h5>
-                    <div class="levels-scroll">
-                      <div class="level-badge">
-                        <div class="level-name">Beginner</div>
-                        <div class="level-desc">Basics</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">Intermediate</div>
-                        <div class="level-desc">DOM, ES6</div>
-                      </div>
-                      <div class="level-badge">
-                        <div class="level-name">Advanced</div>
-                        <div class="level-desc">React, Node</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-  <script>
+    <!-- Aurora effect -->
+    <div class="aurora"></div>
     
-    function goToContact(type, course) {
-      // Show Contact section
-      showSection('Contact');
-      // Set course type
-      const courseType = document.getElementById('courseType');
-      courseType.value = type;
-      // Trigger change event to populate course dropdown
-      updateCourseDropdown();
-      // Set course if dropdown is visible
-      setTimeout(function() {
-        const courseDropdownContainer = document.getElementById('courseDropdownContainer');
-        if (courseDropdownContainer && courseDropdownContainer.style.display !== 'none') {
-          const courseSelect = document.getElementById('courseSelect');
-          if (courseSelect) {
-            courseSelect.value = course;
-          }
-        }
-      }, 100);
-      // Scroll to Contact section smoothly
-      document.getElementById('Contact').scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
+    <!-- Animated background particles -->
+    <div class="particles" id="particles"></div>
 
-<!-- Contact Us Section -->
-<section id="Contact" class="section">
-  <div class="form-section">
+    <!-- Main container -->
     <div class="container">
-      <div class="section-header">
-        <h2>Contact Us Today</h2>
-      </div>
+        <!-- Heart with crack -->
+        <div class="heart-container">
+            <div class="heart broken-heart" id="heart">
+                <div class="crack" id="crack"></div>
+            </div>
+        </div>
 
-      <div class="form-container">
-        <form action="https://submit-form.com/IkUFckCIk" method="POST">
-          <!-- Full Name -->
-          <div class="form-group">
-            <label for="regName">Full Name</label>
-            <input type="text" id="regName" name="regName" placeholder="Enter your full name" required>
-          </div>
+        <!-- Main title -->
+        <h1 class="main-title">I'm Truly Sorry</h1>
 
-      <!-- Email -->
-<div class="form-group">
-  <label for="regEmail">Email Address <span style="color:red">*</span></label>
-  <input type="email" id="regEmail" name="regEmail" placeholder="Enter your email" required>
-</div>
+        <!-- Subtitle -->
+        <p class="subtitle">Words cannot express how deeply I regret my actions and the pain I've caused you</p>
 
-<!-- Phone Number with Typable Country Code -->
-<div class="form-group">
-  <label for="phone">Phone Number (Optional)</label>
-  <div style="display: flex; gap: 10px;">
-    <input type="text" id="countryCode" name="countryCode" placeholder="+91"
-           pattern="\+\d{1,4}" title="Enter a valid country code starting with +"
-           style="width: 80px;">
-    <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit phone number"
-           pattern="\d{10}" maxlength="10" title="Phone number should be 10 digits">
-  </div>
-</div>
+        <!-- Apology message -->
+        <div class="apology-message">
+            <div class="apology-text">
+                I know that saying "I'm sorry" doesn't undo what happened, but I need you to know that I am genuinely, deeply sorry for my actions. I take full responsibility for the hurt I've caused you.
+                <br><br>
+                You mean the world to me, and seeing the pain in your eyes breaks my heart more than you'll ever know. I've reflected deeply on my mistakes, and I'm committed to doing whatever it takes to make things right.
+                <br><br>
+                I understand if you need time, and I respect whatever decision you make. But please know that my remorse is real, my love for you is genuine, and my desire to be better is unwavering.
+                <br><br>
+                Can you find it in your heart to forgive me?
+            </div>
+            <div class="signature">With all my love and deepest regrets you Keshav❤️</div>
+        </div>
 
-
-          <!-- Course Type -->
-          <div class="form-group">
-            <label for="courseType">Select type of Course</label>
-            <select id="courseType" name="courseType" required class="custom-select elegant-select" onchange="updateCourseDropdown()">
-              <option value="" disabled selected>Select your course type</option>
-              <option value="academic">Academic</option>
-              <option value="language">Language</option>
-              <option value="computer">Computer and AI</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <!-- Class Dropdown (only for Academics) -->
-          <div class="form-group" id="classDropdownContainer" style="display: none;">
-            <label for="classSelect">Select Class</label>
-            <select id="classSelect" name="classSelect" class="custom-select elegant-select">
-              <option value="" disabled selected>Select your class</option>
-              <option value="1st-5th">1st–5th</option>
-              <option value="6th-8th">6th–8th</option>
-              <option value="9th-10th">9th–10th</option>
-              <option value="11th-12th">11th–12th</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <!-- Course Dropdown (Dynamic) -->
-          <div class="form-group" id="courseDropdownContainer" style="display: none;">
-            <label for="courseSelect">Select Course</label>
-            <select id="courseSelect" name="courseSelect" required class="custom-select elegant-select">
-              <!-- Options will be populated dynamically -->
-            </select>
-          </div>
-
-          <!-- Country -->
-          <div class="form-group">
-            <label for="country">Country</label>
-            <select id="country" name="country" required class="custom-select elegant-select">
-              <option value="" disabled selected>Select your country</option>
-              <option value="india">India</option>
-              <option value="usa">USA</option>
-              <option value="uk">UK</option>
-              <option value="canada">Canada</option>
-              <option value="australia">Australia</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <!-- Board -->
-          <div class="form-group">
-            <label for="board">Select Board</label>
-            <select id="board" name="board" required class="custom-select elegant-select">
-              <option value="" disabled selected>Select your board</option>
-              <option value="cbse">CBSE</option>
-              <option value="icse">ICSE</option>
-              <option value="state">State Board</option>
-              <option value="ib">IB</option>
-              <option value="igcse">IGCSE</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <!-- Demo Class -->
-          <div class="form-group">
-            <label for="demoClass">Demo Class</label>
-            <select id="demoClass" name="demoClass" required class="custom-select elegant-select">
-              <option value="" disabled selected>Select a demo class</option>
-              <option value="yes">Yes, I want a demo class</option>
-              <option value="no">No, I don't need a demo class</option>
-            </select>
-          </div>
-
-          <!-- Submit Button -->
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Done</button>
-        </form>
-      </div>
+        <!-- Forgive button -->
+        <button class="forgive-btn" id="forgiveBtn">
+            I Forgive You
+        </button>
     </div>
-  </div>
-</section>
 
-<!-- JavaScript for dynamic course and class selection -->
-<script>
-  const courseOptions = {
-    academic: [
-      "Mathematics",
-      "Science",
-      "Chemistry",
-      "Physics",
-      "Biology",
-      "Computer",
-      "English",
-      "Social Studies (Indian)"
-    ],
-    language: [
-      "English",
-      "Hindi",
-      "Punjabi",
-      "Sanskrit",
-      "German",
-      "Japanese",
-      "French"
-    ],
-    computer: [
-      "Python Programming",
-      "C++ Programming",
-      "Full Stack Development",
-      "Google Arcade",
-      "C Programming Basics",
-      "Data Structures & Algorithms (C)",
-      "DBMS",
-      "PHP",
-      "HTML & JavaScript",
-      "Computer Graphics",
-      "Java Programming"
-    ],
-    other: [
-      "Other"
-    ]
-  };
+    <!-- Success message -->
+    <div class="success-message" id="successMessage">
+        <div class="success-title">Thank You! ❤️</div>
+        <div class="success-text">
+            Your forgiveness means everything to me. I promise to cherish it and work every day to be worthy of your love and trust.
+        </div>
+    </div>
 
-  function updateCourseDropdown() {
-    const type = document.getElementById('courseType').value;
-    const container = document.getElementById('courseDropdownContainer');
-    const select = document.getElementById('courseSelect');
-    const classContainer = document.getElementById('classDropdownContainer');
-    const classSelect = document.getElementById('classSelect');
+    <!-- Falling hearts container -->
+    <div class="falling-hearts" id="fallingHearts"></div>
 
-    // Show/hide class dropdown for Academics
-    if (type === 'academic') {
-      classContainer.style.display = 'block';
-      classSelect.required = true;
-    } else {
-      classContainer.style.display = 'none';
-      classSelect.required = false;
-      classSelect.selectedIndex = 0;
-    }
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth < 768 ? 40 : 80;
+            const particleTypes = ['type-1', 'type-2', 'type-3', 'type-4'];
 
-    // Handle course dropdown
-    if (type && courseOptions[type]) {
-      container.style.display = 'block';
-      select.innerHTML = '';
-
-      const placeholder = document.createElement('option');
-      placeholder.value = '';
-      placeholder.disabled = true;
-      placeholder.selected = true;
-      placeholder.textContent = 'Select your course';
-      select.appendChild(placeholder);
-
-      courseOptions[type].forEach(course => {
-        const opt = document.createElement('option');
-        opt.value = course;
-        opt.textContent = course;
-        select.appendChild(opt);
-      });
-
-      select.required = true;
-    } else {
-      container.style.display = 'none';
-      select.required = false;
-    }
-  }
-</script>
-
-
-  <style>
-  /* Elegant and bigger select dropdowns */
-  .elegant-select {
-    width: 100%;
-    min-height: 52px;
-    font-size: 1.15rem;
-    padding: 0.75rem 1.2rem;
-    border-radius: 10px;
-    border: 1.5px solid #2563eb;
-    background: #f3f6fd;
-    color: #1f2937;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 8px rgba(37,99,235,0.06);
-    appearance: none;
-    outline: none;
-    margin-top: 0.25rem;
-  }
-
-  .elegant-select:focus {
-    border-color: #1d4ed8;
-    box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
-    background: #e0e7ff;
-  }
-
-  .elegant-select option {
-    font-size: 1.05rem;
-    padding: 0.7rem;
-    background: #fff;
-    color: #1f2937;
-  }
-  </style>
-
-  <script>
-      // Ensure mobile nav is collapsed by default
-    document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById('mobileNav').style.display = 'none';
-    });
-
-    // Navigation functionality
-    function showSection(sectionName) {
-      // Hide all sections
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => {
-        section.classList.remove('active');
-      });
-
-      // Show selected section
-      document.getElementById(sectionName).classList.add('active');
-
-      // Update navigation buttons
-      const navButtons = document.querySelectorAll('.nav-btn');
-      navButtons.forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      // Add active class to clicked button
-      event.target.classList.add('active');
-    }
-
-    // Mobile menu toggle
-    function toggleMobileMenu() {
-      const mobileNav = document.getElementById('mobileNav');
-      mobileNav.classList.toggle('show');
-    }
-
-    // Form handlers
-    function handleContactForm(event) {
-      event.preventDefault();
-      const formData = new FormData(event.target);
-      const data = Object.fromEntries(formData);
-
-      alert('Thank you for your message! We will get back to you soon.');
-      console.log('Contact form data:', data);
-
-      // Reset form
-      event.target.reset();
-    }
-
-    function handleRegistrationForm(event) {
-      event.preventDefault();
-      const formData = new FormData(event.target);
-      const data = Object.fromEntries(formData);
-
-      // Basic password validation
-      if (data.password !== data.confirmPassword) {
-        alert('Passwords do not match!');
-        return;
-      }
-
-      alert('Form Submitted.');
-      console.log('Registration form data:', data);
-
-      // Reset form
-      event.target.reset();
-    }
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function (event) {
-      const mobileNav = document.getElementById('mobileNav');
-      const mobileMenuBtn = document.querySelector('.mobile-menu');
-
-      if (!mobileNav.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-        mobileNav.classList.remove('show');
-      }
-    });
-
-    function updatePrice(course, basePrice) {
-      const currency = document.getElementById(`currency-${course}`).value;
-      const priceEl = document.getElementById(`price-${course}`);
-      let converted;
-
-      switch (currency) {
-        case "inr":
-          converted = "₹" + (basePrice * 80).toFixed(0);
-          break;
-        case "gbp":
-          converted = "£" + (basePrice * 0.75).toFixed(2);
-          break;
-        default:
-          converted = "$" + basePrice;
-      }
-
-      priceEl.textContent = converted;
-    }
-
-    function showCourseCategory(category) {
-      const categories = ['academics', 'languages', 'computer'];
-
-      // Show only the selected category, hide the others
-      categories.forEach(cat => {
-        const section = document.getElementById(cat);
-        if (section) {
-          section.style.display = (cat === category) ? 'block' : 'none';
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                const randomType = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+                particle.className = `particle ${randomType}`;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particlesContainer.appendChild(particle);
+            }
         }
-      });
 
-      // Highlight the selected button
-      categories.forEach(cat => {
-        const btn = document.getElementById(cat + 'Btn');
-        if (btn) {
-          btn.classList.toggle('active', cat === category);
+        // Create sparkles around heart
+        function createSparkles() {
+            const heartContainer = document.querySelector('.heart-container');
+            const sparkleCount = 12;
+            const sparkleTypes = ['small', 'medium', 'large'];
+
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                const randomType = sparkleTypes[Math.floor(Math.random() * sparkleTypes.length)];
+                sparkle.className = `sparkle ${randomType}`;
+                
+                const angle = (i / sparkleCount) * 2 * Math.PI;
+                const radius = 80 + Math.random() * 40; // Random radius for variety
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+                
+                sparkle.style.left = `calc(50% + ${x}px)`;
+                sparkle.style.top = `calc(50% + ${y}px)`;
+                sparkle.style.animationDelay = (i * 0.15 + Math.random() * 0.5) + 's';
+                sparkle.style.animationDuration = (2 + Math.random() * 2) + 's';
+                
+                heartContainer.appendChild(sparkle);
+            }
         }
-      });
-    }
 
-    // Show academics by default when page loads
-    document.addEventListener("DOMContentLoaded", () => showCourseCategory('academics'));
+        // Ripple effect for button
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
 
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
 
+            button.appendChild(ripple);
 
-  </script>
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+
+        // Create falling hearts
+        function createFallingHearts() {
+            const heartsContainer = document.getElementById('fallingHearts');
+            const heartSymbols = ['❤️', '💕', '💖', '💗', '💓', '💞'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'falling-heart';
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 3 + 's';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Handle forgiveness
+        function handleForgiveness() {
+            const heart = document.getElementById('heart');
+            const crack = document.getElementById('crack');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Heal the heart with enhanced animation
+            crack.style.transition = 'opacity 1s ease-out';
+            crack.style.opacity = '0';
+            heart.style.animation = 'heartbeat 0.3s ease-in-out infinite';
+            heart.style.filter = 'drop-shadow(0 0 30px rgba(255, 107, 107, 1))';
+            
+            // Add healing sparkles
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createHealingSparkle();
+                }, i * 100);
+            }
+            
+            // Show success message
+            setTimeout(() => {
+                successMessage.classList.add('show');
+                createFallingHearts();
+                
+                // Enhanced celebration effect
+                document.body.style.background = 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%)';
+                document.body.style.animation = 'none';
+                
+                // Add celebration particles
+                createCelebrationParticles();
+                
+                // Hide success message after 6 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 6000);
+            }, 800);
+        }
+
+        // Create healing sparkles
+        function createHealingSparkle() {
+            const heartContainer = document.querySelector('.heart-container');
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle large';
+            sparkle.style.left = `calc(50% + ${(Math.random() - 0.5) * 100}px)`;
+            sparkle.style.top = `calc(50% + ${(Math.random() - 0.5) * 100}px)`;
+            sparkle.style.animationDuration = '0.8s';
+            sparkle.style.background = 'radial-gradient(circle, #fff, #00ff88)';
+            sparkle.style.boxShadow = '0 0 25px rgba(0, 255, 136, 1)';
+            heartContainer.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 800);
+        }
+
+        // Create celebration particles
+        function createCelebrationParticles() {
+            const container = document.querySelector('.container');
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = '8px';
+                    particle.style.height = '8px';
+                    particle.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+                    particle.style.borderRadius = '50%';
+                    particle.style.left = '50%';
+                    particle.style.top = '50%';
+                    particle.style.transform = 'translate(-50%, -50%)';
+                    particle.style.boxShadow = `0 0 15px hsl(${Math.random() * 360}, 70%, 60%)`;
+                    particle.style.animation = `celebrationExplode 2s ease-out forwards`;
+                    
+                    const angle = (Math.random() * 2 * Math.PI);
+                    const velocity = Math.random() * 200 + 100;
+                    const keyframes = `
+                        @keyframes celebrationExplode {
+                            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+                            100% { 
+                                transform: translate(calc(-50% + ${Math.cos(angle) * velocity}px), calc(-50% + ${Math.sin(angle) * velocity}px)) scale(1); 
+                                opacity: 0; 
+                            }
+                        }
+                    `;
+                    
+                    if (!document.querySelector('#celebration-keyframes')) {
+                        const style = document.createElement('style');
+                        style.id = 'celebration-keyframes';
+                        style.textContent = keyframes;
+                        document.head.appendChild(style);
+                    }
+                    
+                    container.appendChild(particle);
+                    setTimeout(() => particle.remove(), 2000);
+                }, i * 50);
+            }
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            createSparkles();
+            
+            const forgiveBtn = document.getElementById('forgiveBtn');
+            forgiveBtn.addEventListener('click', createRipple);
+            forgiveBtn.addEventListener('click', handleForgiveness);
+            
+            // Add some random sparkle animations with enhanced effects
+            setInterval(() => {
+                const sparkles = document.querySelectorAll('.sparkle');
+                const randomSparkle = sparkles[Math.floor(Math.random() * sparkles.length)];
+                if (randomSparkle) {
+                    randomSparkle.style.animation = 'none';
+                    randomSparkle.style.transform = 'scale(1.5)';
+                    setTimeout(() => {
+                        randomSparkle.style.animation = 'sparkle 2s ease-in-out infinite';
+                        randomSparkle.style.transform = '';
+                    }, 10);
+                }
+            }, 800);
+
+            // Create random floating hearts occasionally
+            setInterval(() => {
+                if (Math.random() < 0.3) { // 30% chance every 2 seconds
+                    createRandomFloatingHeart();
+                }
+            }, 2000);
+        });
+
+        // Create random floating hearts
+        function createRandomFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.textContent = ['💕', '💖', '💗', '💓', '💞', '❤️'][Math.floor(Math.random() * 6)];
+            heart.style.position = 'fixed';
+            heart.style.fontSize = '20px';
+            heart.style.left = Math.random() * 90 + '%';
+            heart.style.top = '100%';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '5';
+            heart.style.animation = 'floatUp 4s ease-out forwards';
+            
+            const floatUpKeyframes = `
+                @keyframes floatUp {
+                    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    90% { opacity: 1; }
+                    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+                }
+            `;
+            
+            if (!document.querySelector('#float-up-keyframes')) {
+                const style = document.createElement('style');
+                style.id = 'float-up-keyframes';
+                style.textContent = floatUpKeyframes;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }
+
+        // Responsive particle count
+        window.addEventListener('resize', function() {
+            const particlesContainer = document.getElementById('particles');
+            particlesContainer.innerHTML = '';
+            createParticles();
+        });
+
+        // Add mouse movement effect
+        document.addEventListener('mousemove', function(e) {
+            const particles = document.querySelectorAll('.particle');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            particles.forEach((particle, index) => {
+                const speed = (index % 3 + 1) * 0.5;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                
+                particle.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+
+        // Touch support for mobile
+        document.addEventListener('touchstart', function(e) {
+            const touch = e.touches[0];
+            const particles = document.querySelectorAll('.particle');
+            const x = touch.clientX / window.innerWidth;
+            const y = touch.clientY / window.innerHeight;
+            
+            particles.forEach((particle, index) => {
+                const speed = (index % 3 + 1) * 0.3;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                
+                particle.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+    </script>
 </body>
-
 </html>
