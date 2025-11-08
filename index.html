@@ -1,275 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Did you forgive me? — Infinite Apology Loop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Mahak 💖</title>
 <style>
-  :root{
-    --bg1: #fff6f8;
-    --bg2: #fff3fb;
-    --accent: #e8505b;
-    --muted: #5d5d66;
-    --card: #ffffff;
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe5ec, #ffeaf6, #fdf2ff);
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
   }
-  *{box-sizing:border-box}
-  html,body{height:100%; margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; -webkit-font-smoothing:antialiased; background: linear-gradient(135deg,var(--bg1),var(--bg2)); display:flex; align-items:center; justify-content:center; padding:20px;}
-  .stage{width:100%; max-width:760px; display:flex; gap:20px; align-items:center; justify-content:center; flex-direction:column;}
-  .hero{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85)); padding:26px; border-radius:16px; box-shadow:0 18px 50px rgba(20,20,40,0.08); text-align:center;}
-  .title{font-size:20px; color:#222; margin:0 0 8px 0;}
-  .subtitle{color:var(--muted); margin:0 0 8px 0;}
-  .small{font-size:13px;color:var(--muted); margin-top:8px;}
-  /* dialog stack */
-  .overlay{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; z-index:100;}
-  .dialog{
-    width:92%;
-    max-width:360px;
-    background:var(--card);
-    border-radius:14px;
-    padding:18px;
-    box-shadow:0 18px 60px rgba(20,20,40,0.18);
-    text-align:center;
-    transform: translateY(10px) scale(.99);
-    opacity:0;
-    transition: transform .22s cubic-bezier(.2,.9,.3,1), opacity .2s ease;
-    pointer-events:auto;
-    border:1px solid rgba(0,0,0,0.04);
+
+  .container {
+    text-align: center;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 320px;
+    width: 90%;
+    animation: fadeIn 0.6s ease;
   }
-  .dialog.show{ transform: translateY(0) scale(1); opacity:1; }
-  .dialog h2{ margin:0 0 10px; color:var(--accent); font-size:1.15rem;}
-  .dialog p{ margin:0 0 12px; color:var(--muted); font-size:0.98rem;}
-  .row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
-  .btn{
-    padding:10px 14px; border-radius:999px; border:0; cursor:pointer; font-weight:700; font-size:0.95rem;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.06);
-    transition: transform .12s ease, box-shadow .12s ease;
+
+  h2 {
+    color: #e63946;
+    font-size: 1.4em;
+    margin-bottom: 15px;
   }
-  .btn:active{ transform: translateY(1px); }
-  .btn-yes{ background: linear-gradient(90deg,#ff8fa3,#ff6b8a); color:white; }
-  .btn-no{ background: linear-gradient(90deg,#cdb7ff,#9ad1ff); color:white; }
-  /* stacked dialogs visual offset */
-  .stacked{ position: relative; margin-top: -12px; }
-  .stacked .dialog{ margin-top: 10px; }
-  /* tiny helper */
-  .muted{ font-size:12px; color:var(--muted); margin-top:10px; }
-  @media (max-width:520px){
-    .dialog{ padding:14px; }
-    .title{ font-size:18px; }
+
+  p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 0.95em;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+  }
+
+  button {
+    flex: 1;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+  }
+
+  .yes {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    color: #fff;
+  }
+
+  .no {
+    background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
+    color: #fff;
+  }
+
+  button:hover {
+    transform: scale(1.07);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .thankyou {
+    color: #e63946;
+    font-size: 1.2em;
+    animation: fadeIn 0.6s ease;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 30px 20px; }
+    h2 { font-size: 1.2em; }
+    p { font-size: 0.9em; }
   }
 </style>
 </head>
 <body>
-  <div class="stage">
-    <div class="hero" role="banner" aria-live="polite">
-      <h1 class="title">A small apology — from Keshav to Mahak</h1>
-      <p class="subtitle">Click on the options below, Mahak — the loop will keep asking until you forgive. 💖</p>
-      <p class="small">(Only the very first dialog's <strong>Yes</strong> counts as forgiveness — all follow-ups continue asking.)</p>
-    </div>
-  </div>
 
-  <!-- overlay where dialogs are stacked -->
-  <div id="overlay" class="overlay" aria-hidden="false" aria-live="polite"></div>
+<div class="container" id="dialogBox">
+  <h2 id="question">Did you forgive me, Mahak? 💖</h2>
+  <p id="message">I know I was late... I truly didn’t mean to be. Please forgive me?</p>
+  <div class="buttons">
+    <button class="yes" onclick="forgive()">Yes</button>
+    <button class="no" onclick="nextQuestion()">No</button>
+  </div>
+</div>
 
 <script>
-/*
- Behavior:
- - Show the MAIN dialog first: "Did you forgive me???"
-   -> If MAIN Yes clicked => show final "Thank you so much" message and stop.
-   -> If MAIN No clicked => begin follow-up LOOP.
- - Follow-up LOOP: series of dialogs with playful/polite prompts (Are you sure?, Please na, etc.)
-   -> For every follow-up dialog, clicking either Yes or No will NOT end the apology; instead it pushes another follow-up dialog.
-   -> This continues infinitely until the user forgives via the MAIN dialog's Yes (the main dialog remains accessible).
- - The MAIN dialog is always kept at the bottom of the stack so the user can still click its Yes at any time.
- - Accessibility: dialogs are announced via aria-live.
-*/
-
-const overlay = document.getElementById('overlay');
-
-// message pools
-const MAIN = {
-  title: "Did you forgive me???",
-  description: "Please, Mahak — did you forgive me? 💌"
-};
-
-const FOLLOWUPS = [
-  { title: "Are you sure?", description: "I know I messed up. Are you really sure?" },
-  { title: "Please na...", description: "Please give me one more chance. I’ll be on time, I promise." },
-  { title: "Just one more chance?", description: "I’ll make it up to you. Coffee? Treat? Anything." },
-  { title: "You really won’t forgive me?", description: "It hurts to know I made you wait. Please..." },
-  { title: "I'm begging 😢", description: "Please, Mahak — forgive me? I’ll try so much harder." },
-  { title: "I’ll never be late again", description: "I mean it this time. Please please?" },
-  { title: "One tiny favor?", description: "Say yes? I’ll do anything reasonable. 😊" },
-  { title: "Pretty please 🙏", description: "With a cherry on top — please?" },
-  { title: "Come back to me?", description: "I miss your smile when you're upset." },
-  { title: "Final-ish attempt", description: "Okay this is another attempt — please 😊" },
-  { title: "Pleaseeeeeeeee 😭", description: "I won't stop asking until you say yes ❤️" },
-];
-
-// keep indices
-let followIdx = 0;
-
-// create MAIN dialog and add to overlay stack bottom
-function createMainDialog() {
-  const dlg = document.createElement('div');
-  dlg.className = 'dialog show';
-  dlg.setAttribute('role','dialog');
-  dlg.setAttribute('aria-label','Main forgiveness dialog');
-  dlg.innerHTML = `
-    <h2>${escapeHtml(MAIN.title)}</h2>
-    <p>${escapeHtml(MAIN.description)}</p>
-    <div class="row">
-      <button class="btn btn-yes" aria-label="Yes, I forgive" id="mainYes">Yes</button>
-      <button class="btn btn-no" aria-label="No, not yet" id="mainNo">No</button>
-    </div>
-    <div class="muted">Tip: clicking "No" starts a polite (infinite) loop. The main "Yes" is the only way to finish.</div>
-  `;
-  // MAIN should be first child so follow-ups stack on top visually
-  overlay.appendChild(dlg);
-
-  // add handlers
-  dlg.querySelector('#mainYes').addEventListener('click', ()=> {
-    showThankYou(dlg);
-  });
-  dlg.querySelector('#mainNo').addEventListener('click', ()=> {
-    // start loop by pushing first follow-up
-    pushFollowUp();
-  });
-}
-
-// show final thank you (only from MAIN yes)
-function showThankYou(mainDialogEl) {
-  // clear overlays and replace with a single dialog showing thanks
-  overlay.innerHTML = '';
-  const thank = document.createElement('div');
-  thank.className = 'dialog show';
-  thank.setAttribute('role','status');
-  thank.setAttribute('aria-live','polite');
-  thank.innerHTML = `
-    <h2>Thank you so much ❤️</h2>
-    <p>Keshav is so grateful. You just made his day!</p>
-    <div class="row">
-      <button class="btn btn-yes" id="closeBtn">Close</button>
-    </div>
-    <div class="muted">You can close this window or refresh to start again.</div>
-  `;
-  overlay.appendChild(thank);
-
-  // simple confetti sprinkle
-  sprinkleConfetti(thank);
-
-  document.getElementById('closeBtn').addEventListener('click', ()=> {
-    // tidy up
-    overlay.innerHTML = '';
-    // optional: keep main hero visible by doing nothing else
-  });
-}
-
-// push a follow-up dialog onto the stack
-function pushFollowUp() {
-  // create container so multiple dialogs can be shown stacked
-  const dlg = document.createElement('div');
-  dlg.className = 'dialog show';
-  dlg.setAttribute('role','dialog');
-  dlg.setAttribute('aria-label','Follow up apology dialog');
-
-  // pick message
-  const msg = FOLLOWUPS[followIdx % FOLLOWUPS.length];
-  followIdx++;
-
-  // Slight variation for No button text for humor
-  const noLabel = (Math.random() > 0.5) ? "No" : "Not yet";
-
-  dlg.innerHTML = `
-    <h2>${escapeHtml(msg.title)}</h2>
-    <p>${escapeHtml(msg.description)}</p>
-    <div class="row">
-      <button class="btn btn-yes follow-yes">Yes</button>
-      <button class="btn btn-no follow-no">${escapeHtml(noLabel)}</button>
-    </div>
-  `;
-
-  // append on top of existing dialogs so it looks like stacking
-  overlay.appendChild(dlg);
-
-  // Auto-scroll focus to new dialog for keyboard/mobile accessibility
-  dlg.querySelector('.follow-yes').focus();
-
-  // Handlers: for followups, BOTH buttons continue the loop (do NOT end it)
-  dlg.querySelector('.follow-yes').addEventListener('click', () => {
-    // polite reaction (tiny animation) then push next follow-up
-    animatePulse(dlg);
-    setTimeout(() => pushFollowUp(), 240);
-  });
-  dlg.querySelector('.follow-no').addEventListener('click', () => {
-    animatePulse(dlg);
-    setTimeout(() => pushFollowUp(), 240);
-  });
-
-  // optionally limit stacking to avoid memory issues — but per request it's infinite until forgiven.
-  // To keep UI tidy, remove oldest followups after many (e.g., 12)
-  const followups = overlay.querySelectorAll('.dialog');
-  const MAX_STACK = 12;
-  if (followups.length > MAX_STACK) {
-    // keep main (first) and last MAX_STACK-1 — remove extras in middle
-    for (let i = 1; i < followups.length - (MAX_STACK - 1); i++) {
-      followups[i].remove();
+  const dialogs = [
+    {
+      q: "Are you sure you can’t forgive me? 🥺",
+      m: "I know I messed up. But I really didn’t want to hurt you."
+    },
+    {
+      q: "Please na… 😢",
+      m: "Give me one more chance. I’ll be on time, I promise."
+    },
+    {
+      q: "Just one more chance? 💕",
+      m: "I’ll make it up to you — coffee, treat, anything!"
+    },
+    {
+      q: "You really won’t forgive me? 😞",
+      m: "It hurts to know I made you wait. Please…"
+    },
+    {
+      q: "I’m begging now 😭",
+      m: "Mahak, please forgive me? I’ll try so much harder."
+    },
+    {
+      q: "Still no? 😔",
+      m: "Okay fine... but I’m still not giving up 😅"
+    },
+    {
+      q: "Maybe now? 🥹",
+      m: "You have the kindest heart. I know you’ll forgive me soon 💖"
+    },
+    {
+      q: "Forgive me this time? 🙈",
+      m: "I’ll make it up with something sweet next time!"
+    },
+    {
+      q: "Last time asking... maybe 😅",
+      m: "Or maybe not... because I’ll keep asking till you smile 😊"
+    },
+    {
+      q: "Pleaseeeee Mahak 🥺",
+      m: "Forgive me na? I can’t end this without your yes 💞"
     }
+  ];
+
+  let index = 0;
+
+  function forgive() {
+    const box = document.getElementById("dialogBox");
+    box.innerHTML = `
+      <div class="thankyou">Thank you so much, Mahak! 💖<br><br>
+      You just made Keshav the happiest person today 😊</div>
+    `;
   }
-}
 
-// little visual helpers
-function animatePulse(el){
-  el.style.transition = 'transform .08s ease';
-  el.style.transform = 'scale(.98)';
-  setTimeout(()=> { el.style.transform = ''; }, 90);
-}
-
-function sprinkleConfetti(container){
-  // create tiny confetti pieces (non-heavy)
-  const colors = ['#ff6b6b','#ffd166','#6bf2c1','#9b8cff','#ff9bd1','#7ad1ff'];
-  const wrap = document.createElement('div');
-  wrap.style.position = 'absolute';
-  wrap.style.inset = '0';
-  wrap.style.pointerEvents = 'none';
-  container.appendChild(wrap);
-  for (let i=0;i<18;i++){
-    const s = document.createElement('div');
-    s.textContent = '✨';
-    s.style.position = 'absolute';
-    s.style.left = Math.random()*80 + 10 + '%';
-    s.style.top = Math.random()*40 + '%';
-    s.style.fontSize = (10 + Math.random()*18) + 'px';
-    s.style.opacity = '' + (0.7 + Math.random()*0.4);
-    wrap.appendChild(s);
-    (function(node){
-      setTimeout(()=> { node.style.transition = 'transform 1200ms linear, opacity 1200ms linear'; node.style.transform = 'translateY(120px) rotate(60deg)'; node.style.opacity = '0'; }, 80 + Math.random()*200);
-    })(s);
+  function nextQuestion() {
+    const q = document.getElementById("question");
+    const m = document.getElementById("message");
+    index = (index + 1) % dialogs.length;
+    q.textContent = dialogs[index].q;
+    m.textContent = dialogs[index].m;
   }
-  setTimeout(()=> wrap.remove(), 1500);
-}
-
-// escape helper to avoid injection when building HTML strings
-function escapeHtml(str){
-  if (!str) return '';
-  return String(str).replace(/[&<>"']/g, function (m) {
-    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
-  });
-}
-
-// initialize
-createMainDialog();
-
-// Optional: keyboard support - pressing "Escape" will close topmost follow-up (but main stays)
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    const dialogs = overlay.querySelectorAll('.dialog');
-    if (dialogs.length > 1) {
-      // remove topmost (the last child)
-      const last = dialogs[dialogs.length - 1];
-      last.remove();
-    }
-  }
-});
 </script>
+
 </body>
 </html>
