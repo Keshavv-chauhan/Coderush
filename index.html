@@ -7,67 +7,80 @@
 <style>
   body {
     margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #ffe5ec, #ffeaf6, #fdf2ff);
-    font-family: "Poppins", sans-serif;
-    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fce2ec, #ffe6e6, #fff3f3);
+    color: #333;
+    overflow-x: hidden;
+    text-align: center;
   }
 
-  .container {
-    text-align: center;
-    background: white;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    max-width: 320px;
-    width: 90%;
-    animation: fadeIn 0.6s ease;
+  h1 {
+    font-size: 2.8em;
+    margin-top: 100px;
+    color: #e63946;
+    animation: fadeIn 2s ease-in-out;
   }
 
   h2 {
-    color: #e63946;
-    font-size: 1.4em;
-    margin-bottom: 15px;
+    color: #6a1b9a;
+    font-size: 1.5em;
+    font-weight: 400;
+    margin: 10px 0 30px;
+    animation: fadeIn 3s ease-in-out;
+  }
+
+  .heart {
+    color: #ff4d6d;
+    font-size: 3em;
+    animation: heartbeat 1.5s infinite;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    animation: slideUp 1.5s ease;
   }
 
   p {
-    color: #555;
-    margin-bottom: 25px;
-    font-size: 0.95em;
+    line-height: 1.6;
+    font-size: 1.1em;
+    margin: 15px 0;
   }
 
-  .buttons {
-    display: flex;
-    justify-content: space-around;
-    gap: 15px;
+  .signature {
+    margin-top: 30px;
+    font-style: italic;
+    font-weight: bold;
+    color: #e63946;
   }
 
   button {
-    flex: 1;
+    margin-top: 40px;
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    color: white;
+    padding: 12px 30px;
     border: none;
-    border-radius: 25px;
-    padding: 10px 0;
-    font-weight: 600;
+    border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1em;
-  }
-
-  .yes {
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-    color: #fff;
-  }
-
-  .no {
-    background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
-    color: #fff;
+    font-size: 1.1em;
+    box-shadow: 0 5px 15px rgba(255, 118, 136, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   button:hover {
-    transform: scale(1.07);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 118, 136, 0.5);
+  }
+
+  footer {
+    margin-top: 60px;
+    font-size: 0.9em;
+    color: #777;
   }
 
   @keyframes fadeIn {
@@ -75,90 +88,60 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .thankyou {
-    color: #e63946;
-    font-size: 1.2em;
-    animation: fadeIn 0.6s ease;
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  /* Mobile Responsive */
   @media (max-width: 600px) {
-    .container { padding: 30px 20px; }
+    h1 { font-size: 2.2em; margin-top: 60px; }
     h2 { font-size: 1.2em; }
-    p { font-size: 0.9em; }
+    .container { margin: 20px; padding: 25px; }
+    p { font-size: 1em; }
+    button { padding: 10px 25px; font-size: 1em; }
   }
 </style>
 </head>
 <body>
 
-<div class="container" id="dialogBox">
-  <h2 id="question">Did you forgive me, Mahak? 💖</h2>
-  <p id="message">I know I was late... I truly didn’t mean to be. Please forgive me?</p>
-  <div class="buttons">
-    <button class="yes" onclick="forgive()">Yes</button>
-    <button class="no" onclick="nextQuestion()">No</button>
+  <h1>I'm Really Sorry, Mahak 💕</h1>
+  <h2>From the heart of Keshav 💌</h2>
+
+  <div class="container">
+    <div class="heart">💖</div>
+    <p>Mahak, I know I was late — and I truly feel bad about it. You deserved my time, my presence, and my respect, and I let you down. I’m really sorry for that.</p>
+
+    <p>Sometimes, words fall short to express how deeply I regret making you wait. You mean a lot to me, and I never want my actions to make you feel unimportant or less valued.</p>
+
+    <p>I promise to make up for it — not just in words, but through actions. You have the most beautiful heart, and I hope you can forgive me for this mistake.</p>
+
+    <p>Thank you for your patience, your kindness, and for being you — someone truly special. ❤️</p>
+
+    <p class="signature">– With heartfelt apologies,<br>Keshav</p>
+
+    <button onclick="showLove()">💌 Forgive Me, Mahak?</button>
   </div>
-</div>
+
+  <footer>Made with ❤️ by Keshav | For Mahak 🌸</footer>
 
 <script>
-  const dialogs = [
-    {
-      q: "Are you sure you can’t forgive me? 🥺",
-      m: "I know I messed up. But I really didn’t want to hurt you."
-    },
-    {
-      q: "Please na… 😢",
-      m: "Give me one more chance. I’ll be on time, I promise."
-    },
-    {
-      q: "Just one more chance? 💕",
-      m: "I’ll make it up to you — coffee, treat, anything!"
-    },
-    {
-      q: "You really won’t forgive me? 😞",
-      m: "It hurts to know I made you wait. Please…"
-    },
-    {
-      q: "I’m begging now 😭",
-      m: "Mahak, please forgive me? I’ll try so much harder."
-    },
-    {
-      q: "Still no? 😔",
-      m: "Okay fine... but I’m still not giving up 😅"
-    },
-    {
-      q: "Maybe now? 🥹",
-      m: "You have the kindest heart. I know you’ll forgive me soon 💖"
-    },
-    {
-      q: "Forgive me this time? 🙈",
-      m: "I’ll make it up with something sweet next time!"
-    },
-    {
-      q: "Last time asking... maybe 😅",
-      m: "Or maybe not... because I’ll keep asking till you smile 😊"
-    },
-    {
-      q: "Pleaseeeee Mahak 🥺",
-      m: "Forgive me na? I can’t end this without your yes 💞"
-    }
-  ];
-
-  let index = 0;
-
-  function forgive() {
-    const box = document.getElementById("dialogBox");
-    box.innerHTML = `
-      <div class="thankyou">Thank you so much, Mahak! 💖<br><br>
-      You just made Keshav the happiest person today 😊</div>
-    `;
-  }
-
-  function nextQuestion() {
-    const q = document.getElementById("question");
-    const m = document.getElementById("message");
-    index = (index + 1) % dialogs.length;
-    q.textContent = dialogs[index].q;
-    m.textContent = dialogs[index].m;
+  function showLove() {
+    const btn = document.querySelector("button");
+    btn.innerText = "💖 Thank You, Mahak 💖";
+    btn.style.background = "linear-gradient(45deg, #ff9a9e, #fad0c4)";
+    btn.disabled = true;
+    const confetti = document.createElement("div");
+    confetti.innerHTML = "🎉💐💞🌸🌷🌺💖✨";
+    confetti.style.fontSize = "2em";
+    confetti.style.marginTop = "20px";
+    confetti.style.animation = "fadeIn 1.5s ease";
+    document.querySelector(".container").appendChild(confetti);
   }
 </script>
 
